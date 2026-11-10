@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aotearoa Volt | PowerVault 16kWh New Zealand Promotional Poster</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-black: #000000;
+      --bg-card: #111419;
+      --emerald: #10B981;
+      --emerald-bright: #34D399;
+      --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      --font-display: "Outfit", "Plus Jakarta Sans", sans-serif;
+      --font-mono: "JetBrains Mono", monospace;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #07090C;
+      color: #FFFFFF;
+      font-family: var(--font-sans);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 28px 16px 60px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .poster-toolbar {
+      width: 100%;
+      max-width: 920px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #111419;
+      border: 1px solid #252A34;
+      border-radius: 6px;
+      padding: 12px 20px;
+      margin-bottom: 20px;
+    }
+
+    .toolbar-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.85rem;
+      color: #D0D1D2;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .t-btn {
+      height: 34px;
+      padding: 0 14px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid #323844;
+      background: #1B2028;
+      color: #FFFFFF;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .t-btn.active, .t-btn.primary {
+      background: var(--emerald);
+      border-color: var(--emerald);
+      color: #000000;
+    }
+
+    /* THE POSTER SHEET (920px Exact Tesla Powerwall Aesthetic) */
+    .poster-sheet {
+      width: 920px;
+      background: #000000;
+      border: 1px solid #1E232B;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.85);
+      overflow: hidden;
+    }
+
+    /* 1. TESLA POWERWALL HERO STAGE */
+    .p-hero {
+      position: relative;
+      height: 500px;
+      background: #000000;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .p-hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center bottom;
+      z-index: 1;
+    }
+
+    .p-hero-top-group {
+      position: relative;
+      z-index: 3;
+      background: linear-gradient(180deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.55) 75%, rgba(0,0,0,0) 100%);
+      padding-bottom: 24px;
+    }
+
+    .p-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 36px 10px;
+    }
+
+    .p-wordmark {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      color: #FFFFFF;
+    }
+
+    .p-led {
+      width: 4px;
+      height: 16px;
+      background: var(--emerald-bright);
+      border-radius: 2px;
+      box-shadow: 0 0 8px var(--emerald);
+    }
+
+    .p-top-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--emerald-bright);
+      border: 1px solid rgba(52, 211, 153, 0.35);
+      background: rgba(0, 0, 0, 0.65);
+      padding: 5px 12px;
+      border-radius: 4px;
+    }
+
+    .p-hero-center {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      padding: 4px 36px 0;
+      margin-top: 0;
+    }
+
+    .p-hero-title {
+      font-family: var(--font-display);
+      font-size: 3.4rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1.04;
+      color: #FFFFFF;
+    }
+
+    .p-hero-sub {
+      font-size: 1.08rem;
+      color: #E2E4E6;
+      margin-top: 8px;
+      font-weight: 400;
+    }
+
+    .p-hero-sub2 {
+      font-size: 0.85rem;
+      color: var(--emerald-bright);
+      margin-top: 5px;
+      font-weight: 600;
+    }
+
+    /* Bottom Floating Hardware Badge in Hero */
+    .p-hero-bottom {
+      position: relative;
+      z-index: 3;
+      padding: 0 36px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .p-hw-card {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(12, 16, 20, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 6px;
+      padding: 10px 16px;
+    }
+
+    .p-hw-card img {
+      width: 50px;
+      height: 54px;
+      object-fit: contain;
+      background: #FFFFFF;
+      border-radius: 4px;
+      padding: 3px;
+    }
+
+    /* 2. TESLA 4-STAT BADGE STRIP ON PURE BLACK */
+    .p-badges {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: #000000;
+      border-top: 1px solid #1C2026;
+      border-bottom: 1px solid #1C2026;
+      padding: 26px 24px;
+    }
+
+    .p-badge-cell {
+      text-align: center;
+      border-right: 1px solid #22262E;
+      padding: 0 12px;
+    }
+
+    .p-badge-cell:last-child {
+      border-right: none;
+    }
+
+    .p-badge-val {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 500;
+      color: #FFFFFF;
+      line-height: 1.1;
+    }
+
+    .p-badge-val.emerald {
+      color: var(--emerald-bright);
+    }
+
+    .p-badge-lbl {
+      font-size: 0.76rem;
+      color: #8E8E93;
+      margin-top: 6px;
+    }
+
+    /* 3. TESLA OVERBAR 3-COLUMN VALUE & CASHFLOW SECTION */
+    .p-body {
+      padding: 32px 36px;
+      background: #000000;
+    }
+
+    .p-overbars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 30px;
+    }
+
+    .p-overbar-col {
+      border-top: 3px solid #2E323B;
+      padding-top: 14px;
+    }
+
+    .p-overbar-col.highlight {
+      border-top-color: var(--emerald-bright);
+    }
+
+    .p-overbar-col h3 {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin-bottom: 6px;
+    }
+
+    .p-overbar-col p {
+      font-size: 0.8rem;
+      line-height: 1.55;
+      color: #A0A4AB;
+    }
+
+    /* 4. TESLA DESIGN STUDIO 3 PACKAGE CARDS */
+    .p-section-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 14px;
+    }
+
+    .p-section-label h2 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: #FFFFFF;
+    }
+
+    .p-section-label span {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--emerald-bright);
+    }
+
+    .p-pkg-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .p-pkg-card {
+      background: #0E1116;
+      border: 1px solid #262B34;
+      border-radius: 4px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .p-pkg-card.featured {
+      border: 2px solid var(--emerald-bright);
+      background: #0B1713;
+    }
+
+    .p-pkg-tag {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--emerald-bright);
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .p-pkg-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin-bottom: 6px;
+    }
+
+    .p-pkg-price {
+      font-family: var(--font-mono);
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin: 6px 0 2px;
+    }
+
+    .p-pkg-price small {
+      font-size: 0.75rem;
+      color: var(--emerald-bright);
+      font-weight: 500;
+    }
+
+    .p-pkg-sub {
+      font-size: 0.75rem;
+      color: #8E8E93;
+      margin-bottom: 12px;
+    }
+
+    .p-pkg-list {
+      list-style: none;
+      font-size: 0.76rem;
+      color: #D0D1D2;
+      line-height: 1.6;
+      border-top: 1px solid #1F242C;
+      padding-top: 10px;
+    }
+
+    /* 5. TESLA SPECS BENCHMARK STRIP */
+    .p-spec-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      border-top: 1px solid #22262E;
+      padding-top: 18px;
+      margin-bottom: 26px;
+    }
+
+    .p-spec-item span {
+      display: block;
+      font-size: 0.72rem;
+      color: #8E8E93;
+      margin-bottom: 3px;
+    }
+
+    .p-spec-item strong {
+      font-size: 0.85rem;
+      color: #FFFFFF;
+      font-weight: 500;
+    }
+
+    /* 6. TESLA FOOTER CTA WITH QR */
+    .p-footer {
+      background: #0B0E12;
+      border-top: 1px solid #1E232B;
+      padding: 22px 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .p-footer-left h3 {
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: #FFFFFF;
+      margin-bottom: 4px;
+    }
+
+    .p-footer-left p {
+      font-size: 0.8rem;
+      color: #9CA0A8;
+    }
+
+    .p-footer-contacts {
+      display: flex;
+      gap: 16px;
+      margin-top: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: var(--emerald-bright);
+    }
+
+    .p-qr-box {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: #141920;
+      border: 1px solid #2A303C;
+      padding: 10px 14px;
+      border-radius: 4px;
+    }
+
+    @media print {
+      body {
+        background: #000000;
+        padding: 0;
+      }
+      .poster-toolbar {
+        display: none !important;
+      }
+      .poster-sheet {
+        box-shadow: none;
+        border: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="poster-toolbar">
+    <div class="toolbar-left">
+      <a href="index.html?v=20261109_v6" class="t-btn">← 返回 PowerVault 独立站</a>
+      <span>Tesla Powerwall 1:1 视觉同源终端获客海报（支持中英切换与单页 PDF 印刷导出）</span>
+    </div>
+    <div class="toolbar-actions">
+      <button type="button" class="t-btn active" id="p-btn-zh" onclick="setPosterLang('zh')">中文海报</button>
+      <button type="button" class="t-btn" id="p-btn-en" onclick="setPosterLang('en')">English Poster</button>
+      <button type="button" class="t-btn primary" onclick="window.print()">打印 / 导出 PDF</button>
+    </div>
+  </div>
+
+  <div class="poster-sheet" id="poster-sheet">
+    <!-- 1. TESLA POWERWALL HERO -->
+    <div class="p-hero">
+      <img src="assets/tesla/01_hero_blue_planet.jpg?v=20261110_real_sunexus" alt="PowerVault Hero" class="p-hero-bg" />
+
+      <div class="p-hero-top-group">
+        <div class="p-topbar">
+          <div class="p-wordmark">
+            <span class="p-led"></span>
+            <span>AOTEAROA VOLT</span>
+          </div>
+          <div class="p-top-tag" data-i18n="p_top_tag">AUCKLAND & CHRISTCHURCH STOCK · 0% GREEN LOAN</div>
+        </div>
+
+        <div class="p-hero-center">
+          <h1 class="p-hero-title" data-i18n="p_h1">PowerVault 16kWh</h1>
+          <p class="p-hero-sub" data-i18n="p_sub">终结一年 $6,000 NZD 新西兰电费账单 · 首付 $0 首月净赚 +$176</p>
+          <p class="p-hero-sub2" data-i18n="p_sub2">华晟 HJT 双面光伏 + 314Ah 磷酸铁锂储能 · 比 Powerwall 3 大 19% 且立省 $7,600+</p>
+        </div>
+      </div>
+
+      <div class="p-hero-bottom">
+        <div class="p-hw-card">
+          <img src="assets/sunp_16kwh_unit.png?v=20261110_real_sunexus" alt="SUN(P)-16KWH" />
+          <div>
+            <div style="font-family:var(--font-mono);font-size:0.68rem;color:var(--emerald-bright);">SUN(P)-16KWH · 51.2V 314Ah LFP</div>
+            <div style="font-size:0.88rem;font-weight:600;color:#fff;" data-i18n="p_hw_t">单机 16.08 kWh · 裸机直购仅 $4,190 NZD</div>
+          </div>
+        </div>
+        <div style="font-family:var(--font-mono);font-size:0.75rem;color:#D0D1D2;background:rgba(0,0,0,0.75);padding:8px 14px;border-radius:4px;border:1px solid rgba(255,255,255,0.14);" data-i18n="p_cert_pill">
+          AS/NZS 4777.2 & 5139 · 10-Yr NZ Warranty
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. TESLA 4-BADGE BAR -->
+    <div class="p-badges">
+      <div class="p-badge-cell">
+        <div class="p-badge-val emerald">16.08 kWh</div>
+        <div class="p-badge-lbl" data-i18n="pb_1">单机可用容量 (比 Powerwall 3 多 19%)</div>
+      </div>
+      <div class="p-badge-cell">
+        <div class="p-badge-val">+$176 /mo</div>
+        <div class="p-badge-lbl" data-i18n="pb_2">Westpac 5年0息绿贷首月净赚现金流</div>
+      </div>
+      <div class="p-badge-cell">
+        <div class="p-badge-val">&lt; 10 ms</div>
+        <div class="p-badge-lbl" data-i18n="pb_3">Storm Watch 飓风断网 UPS 无感备电</div>
+      </div>
+      <div class="p-badge-cell">
+        <div class="p-badge-val emerald">$16,900</div>
+        <div class="p-badge-lbl" data-i18n="pb_4">6.6kW 光伏 + 16kWh 储能全包落地价</div>
+      </div>
+    </div>
+
+    <!-- 3. BODY: TESLA 3-COL OVERBAR + 3 DESIGN STUDIO CARDS -->
+    <div class="p-body">
+      <div class="p-overbars">
+        <div class="p-overbar-col highlight">
+          <h3 data-i18n="po_t1">为什么 $6,000 电费能直接砍掉 91%？</h3>
+          <p data-i18n="po_d1">新西兰白天光伏卖电网仅 8c/kWh，晚高峰买电却高达 42c/kWh（5.2倍价差）。16.08kWh 大电池把白天免费绿电留到晚上自用，每年直省 $5,496 NZD。</p>
+        </div>
+        <div class="p-overbar-col">
+          <h3 data-i18n="po_t2">零首付免息绿贷：省下的电费替您还月供</h3>
+          <p data-i18n="po_d2">6.6kW+16kWh 全包价 $16,900 NZD，申请 Westpac 5年0% 绿贷月供仅 $282/月，而每月少交电费 $458/月——不掏一分钱首付，每月净赚 +$176！</p>
+        </div>
+        <div class="p-overbar-col">
+          <h3 data-i18n="po_t3">源头工厂直通南北岛双仓，开放裸机直购</h3>
+          <p data-i18n="po_d3">江苏光链 314Ah 储能箱 + 华晟 HJT 双面组件直供奥克兰与基督城仓。既提供持牌电工全包交钥匙服务，也向本地电工与 DIY 屋主开放裸机套件批发。</p>
+        </div>
+      </div>
+
+      <div class="p-section-label">
+        <h2 data-i18n="p_pkg_h2">PowerVault 明码标价全系方案 (含 GST)</h2>
+        <span data-i18n="p_pkg_note">前 5 户样板房签约立减 $2,000 NZD · 送全屋智能 EMS</span>
+      </div>
+
+      <div class="p-pkg-grid">
+        <!-- Card 1 -->
+        <div class="p-pkg-card">
+          <div>
+            <span class="p-pkg-tag">RETROFIT · 老光伏家庭加装</span>
+            <div class="p-pkg-title" data-i18n="pp1_t">PowerVault 16kWh 储能升级包</div>
+            <div class="p-pkg-price">$8,900 <small>NZD 全包</small></div>
+            <div class="p-pkg-sub" data-i18n="pp1_sub">硬件套件直购 $6,490 · 单电池裸机 $4,190</div>
+          </div>
+          <ul class="p-pkg-list" data-i18n="pp1_list">
+            <li>• 16.08kWh 磷酸铁锂电池 (51.2V 314Ah)</li>
+            <li>• 6kW 澳新认证混合逆变器 (&lt;10ms UPS)</li>
+            <li>• 含 EWRB 持牌电工半天无损加装与 COC</li>
+            <li>• Westpac 0% 绿贷月供仅 $148/月 ($34/周)</li>
+          </ul>
+        </div>
+
+        <!-- Card 2 (Featured) -->
+        <div class="p-pkg-card featured">
+          <div>
+            <span class="p-pkg-tag">90% KIWI HOME BESTSELLER · 爆款全包</span>
+            <div class="p-pkg-title" data-i18n="pp2_t">6.6kW HJT 光伏 + 16kWh 全家桶</div>
+            <div class="p-pkg-price">$16,900 <small>NZD 全包</small></div>
+            <div class="p-pkg-sub" data-i18n="pp2_sub">全套硬件裸机直购仅 $10,490 NZD</div>
+          </div>
+          <ul class="p-pkg-list" data-i18n="pp2_list">
+            <li>• 15块华晟 HJT 双面双玻全黑组件 (年发9,200度)</li>
+            <li>• 16.08kWh 储能箱 + 6kW 智能混合逆变器</li>
+            <li>• 包安装、包支架、包并网审批、包绿贷报价单</li>
+            <li>• Westpac 0% 绿贷仅 $65/周 · 首月净赚 +$176</li>
+          </ul>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="p-pkg-card">
+          <div>
+            <span class="p-pkg-tag">LIFESTYLE & FARM · 庄园/全离网/牧场</span>
+            <div class="p-pkg-title" data-i18n="pp3_t">10.5kW 光伏 + 32kWh 双联满配</div>
+            <div class="p-pkg-price">$23,900 <small>NZD 全包</small></div>
+            <div class="p-pkg-sub" data-i18n="pp3_sub">高压塔 SUN(T)-25KWH 仅 $26,800 · 另有 208kWh</div>
+          </div>
+          <ul class="p-pkg-list" data-i18n="pp3_list">
+            <li>• 24块 HJT 双面组件 + 32.16kWh 双联大储能</li>
+            <li>• 10kW 逆变器 + 柴油发电机自动点火联动接口</li>
+            <li>• 免交电力公司 $50,000+ 农网扩建拉线费</li>
+            <li>• 满足泳池、地暖、双 EV 与牧场全天候独立运行</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tesla Specs Benchmark Strip -->
+      <div class="p-spec-strip">
+        <div class="p-spec-item">
+          <span data-i18n="ps_1_k">对比 Tesla Powerwall 3</span>
+          <strong data-i18n="ps_1_v">容量大 19% (16.08 vs 13.5kWh)，整套立省 $7,600+</strong>
+        </div>
+        <div class="p-spec-item">
+          <span data-i18n="ps_2_k">电芯寿命与安全等级</span>
+          <strong data-i18n="ps_2_v">A级 314Ah LFP · ≥8,000次循环 · IP65 防护</strong>
+        </div>
+        <div class="p-spec-item">
+          <span data-i18n="ps_3_k">三种电网运行模式</span>
+          <strong data-i18n="ps_3_v">≤10kW 快速并网 / CT 零逆流秒装 / 100% 纯离网</strong>
+        </div>
+        <div class="p-spec-item">
+          <span data-i18n="ps_4_k">本地仓与质保承诺</span>
+          <strong data-i18n="ps_4_v">奥克兰 & 基督城现货 · 10年新西兰本地联保</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. TESLA DARK FOOTER WITH QR -->
+    <div class="p-footer">
+      <div class="p-footer-left">
+        <h3 data-i18n="pf_h3">扫码 30 秒测算您家屋顶收益 · 24 小时出具银行 0% 绿贷正式报价单</h3>
+        <p data-i18n="pf_p">同时诚招新西兰南北岛 EWRB 持牌电工合作伙伴：享奥克兰仓 Trade 阶梯批发价 + 线上精准安装派单（每单施工费 $3,000–$4,500 NZD）</p>
+        <div class="p-footer-contacts">
+          <span>0800-865-869 (NZ Free)</span>
+          <span>www.aotearoavolt.co.nz</span>
+          <span>WeChat: AotearoaVolt_NZ</span>
+          <span>East Tamaki (AKL) & Hornby (CHC)</span>
+        </div>
+      </div>
+
+      <div class="p-qr-box">
+        <svg width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg" style="background:#fff;padding:4px;border-radius:3px;">
+          <rect x="4" y="4" width="20" height="20" stroke="#000" stroke-width="4"/>
+          <rect x="10" y="10" width="8" height="8" fill="#000"/>
+          <rect x="44" y="4" width="20" height="20" stroke="#000" stroke-width="4"/>
+          <rect x="50" y="10" width="8" height="8" fill="#000"/>
+          <rect x="4" y="44" width="20" height="20" stroke="#000" stroke-width="4"/>
+          <rect x="10" y="50" width="8" height="8" fill="#000"/>
+          <rect x="30" y="6" width="6" height="6" fill="#000"/>
+          <rect x="30" y="18" width="6" height="12" fill="#000"/>
+          <rect x="6" y="30" width="12" height="6" fill="#000"/>
+          <rect x="24" y="30" width="14" height="6" fill="#10B981"/>
+          <rect x="44" y="30" width="6" height="12" fill="#000"/>
+          <rect x="56" y="30" width="8" height="6" fill="#000"/>
+          <rect x="30" y="44" width="10" height="8" fill="#000"/>
+          <rect x="46" y="48" width="16" height="6" fill="#000"/>
+          <rect x="30" y="56" width="8" height="8" fill="#000"/>
+          <rect x="54" y="56" width="10" height="8" fill="#10B981"/>
+        </svg>
+        <div>
+          <div style="font-size:0.82rem;font-weight:700;color:#fff;" data-i18n="qr_t">扫码定制 PowerVault</div>
+          <div style="font-size:0.7rem;color:var(--emerald-bright);margin-top:2px;" data-i18n="qr_s">立领 $2,000 样板房补贴</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const posterDict = {
+      zh: {
+        p_top_tag: 'AUCKLAND & CHRISTCHURCH STOCK · 0% GREEN LOAN',
+        p_h1: 'PowerVault 16kWh',
+        p_sub: '终结一年 $6,000 NZD 新西兰电费账单 · 首付 $0 首月净赚 +$176',
+        p_sub2: '华晟 HJT 双面光伏 + 314Ah 磷酸铁锂储能 · 比 Powerwall 3 大 19% 且立省 $7,600+',
+        p_hw_t: '单机 16.08 kWh · 裸机直购仅 $4,190 NZD',
+        p_cert_pill: 'AS/NZS 4777.2 & 5139 · 10年新西兰本地联保',
+        pb_1: '单机可用容量 (比 Powerwall 3 多 19%)',
+        pb_2: 'Westpac 5年0息绿贷首月净赚现金流',
+        pb_3: 'Storm Watch 飓风断网 UPS 无感备电',
+        pb_4: '6.6kW 光伏 + 16kWh 储能全包落地价',
+        po_t1: '为什么 $6,000 电费能直接砍掉 91%？',
+        po_d1: '新西兰白天光伏卖电网仅 8c/kWh，晚高峰买电却高达 42c/kWh（5.2倍价差）。16.08kWh 大电池把白天免费绿电留到晚上自用，每年直省 $5,496 NZD。',
+        po_t2: '零首付免息绿贷：省下的电费替您还月供',
+        po_d2: '6.6kW+16kWh 全包价 $16,900 NZD，申请 Westpac 5年0% 绿贷月供仅 $282/月，而每月少交电费 $458/月——不掏一分钱首付，每月净赚 +$176！',
+        po_t3: '源头工厂直通南北岛双仓，开放裸机直购',
+        po_d3: '江苏光链 314Ah 储能箱 + 华晟 HJT 双面组件直供奥克兰与基督城仓。既提供持牌电工全包交钥匙服务，也向本地电工与 DIY 屋主开放裸机套件批发。',
+        p_pkg_h2: 'PowerVault 明码标价全系方案 (含 GST)',
+        p_pkg_note: '前 5 户样板房签约立减 $2,000 NZD · 送全屋智能 EMS',
+        pp1_t: 'PowerVault 16kWh 储能升级包',
+        pp1_sub: '硬件套件直购 $6,490 · 单电池裸机 $4,190',
+        pp1_list: '<li>• 16.08kWh 磷酸铁锂电池 (51.2V 314Ah)</li><li>• 6kW 澳新认证混合逆变器 (&lt;10ms UPS)</li><li>• 含 EWRB 持牌电工半天无损加装与 COC</li><li>• Westpac 0% 绿贷月供仅 $148/月 ($34/周)</li>',
+        pp2_t: '6.6kW HJT 光伏 + 16kWh 全家桶',
+        pp2_sub: '全套硬件裸机直购仅 $10,490 NZD',
+        pp2_list: '<li>• 15块华晟 HJT 双面双玻全黑组件 (年发9,200度)</li><li>• 16.08kWh 储能箱 + 6kW 智能混合逆变器</li><li>• 包安装、包支架、包并网审批、包绿贷报价单</li><li>• Westpac 0% 绿贷仅 $65/周 · 首月净赚 +$176</li>',
+        pp3_t: '10.5kW 光伏 + 32kWh 双联满配',
+        pp3_sub: '高压塔 SUN(T)-25KWH 仅 $26,800 · 另有 208kWh',
+        pp3_list: '<li>• 24块 HJT 双面组件 + 32.16kWh 双联大储能</li><li>• 10kW 逆变器 + 柴油发电机自动点火联动接口</li><li>• 免交电力公司 $50,000+ 农网扩建拉线费</li><li>• 满足泳池、地暖、双 EV 与牧场全天候独立运行</li>',
+        ps_1_k: '对比 Tesla Powerwall 3',
+        ps_1_v: '容量大 19% (16.08 vs 13.5kWh)，整套立省 $7,600+',
+        ps_2_k: '电芯寿命与安全等级',
+        ps_2_v: 'A级 314Ah LFP · ≥8,000次循环 · IP65 防护',
+        ps_3_k: '三种电网运行模式',
+        ps_3_v: '≤10kW 快速并网 / CT 零逆流秒装 / 100% 纯离网',
+        ps_4_k: '本地仓与质保承诺',
+        ps_4_v: '奥克兰 & 基督城现货 · 10年新西兰本地联保',
+        pf_h3: '扫码 30 秒测算您家屋顶收益 · 24 小时出具银行 0% 绿贷正式报价单',
+        pf_p: '同时诚招新西兰南北岛 EWRB 持牌电工合作伙伴：享奥克兰仓 Trade 阶梯批发价 + 线上精准安装派单（每单施工费 $3,000–$4,500 NZD）',
+        qr_t: '扫码定制 PowerVault',
+        qr_s: '立领 $2,000 样板房补贴'
+      },
+      en: {
+        p_top_tag: 'AUCKLAND & CHRISTCHURCH STOCK · 0% GREEN LOAN',
+        p_h1: 'PowerVault 16kWh',
+        p_sub: 'Eliminate Your $6,000/yr NZ Power Bill · $0 Down, +$176/mo Net Cashflow',
+        p_sub2: 'Huasun HJT Bifacial Solar + 314Ah LFP Storage · 19% Larger Than Powerwall 3 & Save $7,600+',
+        p_hw_t: '16.08 kWh Usable · $4,190 NZD Standalone Unit',
+        p_cert_pill: 'AS/NZS 4777.2 & 5139 · 10-Yr NZ Warranty',
+        pb_1: 'Usable Capacity (+19% vs Powerwall 3)',
+        pb_2: 'Net Positive Cashflow (Westpac 5-Yr 0% Loan)',
+        pb_3: 'Storm Watch Whole-Home UPS Backup',
+        pb_4: '6.6kW HJT Solar + 16kWh Turnkey Installed',
+        po_t1: 'Why Slash a $6,000/yr NZ Bill by 91%?',
+        po_d1: 'NZ retailers pay just 8c/kWh for solar exports while charging 42c/kWh at night (5.2x spread). PowerVault stores 16.08kWh of free daytime solar to run your entire evening peak, saving $5,496/yr.',
+        po_t2: '$0 Down 0% Green Loan: Bill Savings Pay the Loan',
+        po_d2: 'At $16,900 Turnkey on a Westpac 5-Year 0% Green Loan, your payment is just $282/mo while saving $458/mo off your power bill—putting +$176/mo net cash into your pocket from Month 1.',
+        po_t3: 'Factory-Direct to Auckland & Christchurch Hubs',
+        po_d3: 'Jiangsu SolarLink 314Ah LFP batteries and Huasun HJT panels stocked locally. Available both as full EWRB Turnkey installation or Kit-Only wholesale for Kiwi tradies and self-installers.',
+        p_pkg_h2: 'Transparent PowerVault Packages (Incl. GST)',
+        p_pkg_note: '$2,000 Display Home Rebate for First 5 Homes · Free Smart EMS',
+        pp1_t: 'PowerVault 16kWh Solar Retrofit',
+        pp1_sub: 'Kit-Only Direct $6,490 · Battery Only $4,190',
+        pp1_list: '<li>• 16.08kWh LFP Battery (51.2V 314Ah, ≥8,000 cycles)</li><li>• 6kW AS/NZS Hybrid Inverter (&lt;10ms UPS)</li><li>• Full EWRB Certified Install & COC Included</li><li>• Just $148/mo ($34/wk) on Westpac 0% Green Loan</li>',
+        pp2_t: '6.6kW HJT Solar + 16kWh Flagship',
+        pp2_sub: 'Full Hardware Kit-Only Direct: $10,490 NZD',
+        pp2_list: '<li>• 15x Huasun HJT Bifacial Black Panels (~9,200kWh/yr)</li><li>• 16.08kWh PowerVault + 6kW Hybrid Inverter</li><li>• Full Turnkey Install, Mounting, Grid App & COC</li><li>• Just $65/wk on 0% Green Loan · Net +$176/mo</li>',
+        pp3_t: '10.5kW Solar + 32kWh Lifestyle Pro',
+        pp3_sub: '25kWh HV Tower $26,800 · 208kWh Farm C&I Available',
+        pp3_list: '<li>• 24x HJT Bifacial Panels + 32.16kWh Dual Storage</li><li>• 10kW Inverter with Auto Diesel Generator Start</li><li>• Avoid $50,000+ Rural Grid Transformer Upgrades</li><li>• Powers Pools, Heat Pumps, Dual EVs & Lifestyle Blocks</li>',
+        ps_1_k: 'vs. Tesla Powerwall 3',
+        ps_1_v: '+19% Capacity (16.08 vs 13.5kWh), Save $7,600+ Installed',
+        ps_2_k: 'LFP Cell Life & Rating',
+        ps_2_v: 'Grade-A 314Ah LFP · ≥8,000 Cycles · IP65 Weatherproof',
+        ps_3_k: '3 Grid Operating Modes',
+        ps_3_v: '≤10kW Fast-Track / CT Zero-Export / 100% Off-Grid',
+        ps_4_k: 'Local Dispatch & Warranty',
+        ps_4_v: 'Auckland & Christchurch Stock · 10-Yr NZ Warranty',
+        pf_h3: 'Scan to Calculate Your Roof Savings in 30s · Get Your 24h Bank 0% Green Loan Quote',
+        pf_p: 'EWRB Electricians & Solar Installers Wanted Across NZ: Access Trade Wholesale Pricing + Pre-Sold Turnkey Installation Jobs ($3,000–$4,500 Labour/Job)',
+        qr_t: 'Order PowerVault 16',
+        qr_s: 'Claim $2,000 Pilot Rebate'
+      }
+    };
+
+    function setPosterLang(lang) {
+      document.getElementById('p-btn-zh').classList.toggle('active', lang === 'zh');
+      document.getElementById('p-btn-en').classList.toggle('active', lang === 'en');
+      const d = posterDict[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const k = el.getAttribute('data-i18n');
+        if (d[k]) el.innerHTML = d[k];
+      });
+    }
+  </script>
+</body>
+</html>

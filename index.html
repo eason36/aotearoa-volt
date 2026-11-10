@@ -1,0 +1,1954 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PowerVault – Home Battery Storage | Aotearoa Volt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Outfit:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20261110_14k_native" />
+  <style id="inline-tesla-v8">
+:root {
+  --bg-black: #000000;
+  --bg-dark-elevated: #111317;
+  --bg-dark-card: #171A20;
+  --text-white: #FFFFFF;
+  --text-secondary: #D0D1D2;
+  --text-muted: #8E8E93;
+  --emerald: #10B981;
+  --emerald-bright: #34D399;
+  --emerald-dark: #059669;
+  --border-hairline: #22252A;
+  --border-subtle: rgba(255, 255, 255, 0.14);
+  --font-sans: "Universal Sans", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --font-display: "Outfit", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 56px;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #000000;
+  color: #FFFFFF;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================================================
+   TOP TESLA ANNOUNCEMENT RIBBON (tds-banner)
+   ========================================================= */
+.tds-banner {
+  background: linear-gradient(90deg, #061A12 0%, #0A2E20 50%, #061A12 100%);
+  border-bottom: 1px solid rgba(16, 185, 129, 0.25);
+  color: #FFFFFF;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  text-align: center;
+  padding: 10px 20px;
+  letter-spacing: 0.01em;
+  position: relative;
+  z-index: 1001;
+}
+
+.tds-banner a {
+  color: var(--emerald-bright);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  margin-left: 8px;
+  font-weight: 500;
+}
+
+/* =========================================================
+   TESLA TRANSPARENT / GLASS HEADER (tds-site-header)
+   ========================================================= */
+.tds-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.68);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: background 0.25s ease;
+}
+
+.tds-header-inner {
+  max-width: 1440px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tds-wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  white-space: nowrap;
+}
+
+.tds-wordmark-led {
+  width: 4px;
+  height: 18px;
+  border-radius: 2px;
+  background: var(--emerald-bright);
+  box-shadow: 0 0 10px var(--emerald);
+  display: inline-block;
+}
+
+.tds-nav-center {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.tds-nav-center a {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #FFFFFF;
+  padding: 6px 14px;
+  border-radius: 4px;
+  transition: background 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+
+.tds-nav-center a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tds-nav-center a.poster-link {
+  color: var(--emerald-bright);
+}
+
+.tds-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tds-lang-switch {
+  display: inline-flex;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.tds-lang-btn {
+  border: none;
+  background: transparent;
+  color: #B8BABC;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.tds-lang-btn.active {
+  background: var(--emerald);
+  color: #000000;
+}
+
+/* =========================================================
+   TESLA BUTTONS (200px Rectangular 4px Radius)
+   ========================================================= */
+.tds-btn-group {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.tds-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 200px;
+  height: 40px;
+  padding: 0 24px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.tds-btn--primary {
+  background: var(--emerald);
+  color: #000000;
+}
+
+.tds-btn--primary:hover {
+  background: var(--emerald-bright);
+}
+
+.tds-btn--white {
+  background: #F4F4F4;
+  color: #171A20;
+}
+
+.tds-btn--white:hover {
+  background: #FFFFFF;
+}
+
+.tds-btn--dark {
+  background: #171A20;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.tds-btn--dark:hover {
+  background: #22262E;
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+/* =========================================================
+   BLOCK 0: TESLA 100VH HERO WITH ANIMATED 3D BLUE PLANET
+   ========================================================= */
+.tcl-hero {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 56px);
+  min-height: 680px;
+  max-height: 1080px;
+  background: #020409 url('assets/tesla/01_hero_blue_planet_bg.jpg?v=20261110_14k_native') center bottom / cover no-repeat;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tcl-planet-stage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* CSS 3D Rotating Night Earth Dome (instant animation + fallback before/without WebGL) */
+.tcl-planet-dome {
+  position: absolute;
+  left: 50%;
+  top: 31%;
+  width: min(142vw, 2400px);
+  height: min(142vw, 2400px);
+  transform: translateX(-50%);
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow:
+    0 -2px 8px rgba(205, 135, 60, 0.72),
+    0 -12px 36px rgba(18, 58, 130, 0.55),
+    0 -32px 80px rgba(10, 32, 75, 0.35),
+    inset 0 16px 42px rgba(16, 52, 120, 0.62),
+    inset 0 3px 10px rgba(205, 135, 60, 0.55);
+}
+
+.tcl-planet-spin-disc {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background-image: url('assets/tesla/blue_planet_texture.jpg?v=20261110_8k_night');
+  background-size: 160% 80%;
+  background-position: 65% 28%;
+  background-repeat: repeat;
+  border-radius: 50%;
+  will-change: background-position;
+  animation: planetSurfaceDrift 95s linear infinite;
+}
+
+.tcl-planet-atmosphere {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 38%,
+      rgba(2, 5, 12, 0.0) 0%,
+      rgba(4, 12, 28, 0.12) 64%,
+      rgba(14, 46, 105, 0.42) 91%,
+      rgba(185, 122, 52, 0.48) 98.8%,
+      rgba(215, 145, 68, 0.78) 100%);
+  pointer-events: none;
+}
+
+@keyframes planetSurfaceDrift {
+  0% {
+    background-position: 65% 28%;
+  }
+  100% {
+    background-position: 225% 28%;
+  }
+}
+
+.tcl-planet-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 2;
+}
+
+/* Foreground Freestanding PowerVault Monolith */
+.tcl-hero-monolith-wrap {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  height: min(53vh, 520px);
+  min-height: 330px;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.tcl-monolith-aura {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  width: 128%;
+  height: 110%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse at center,
+    rgba(52, 211, 153, 0.24) 0%,
+    rgba(45, 135, 235, 0.22) 38%,
+    rgba(0, 0, 0, 0) 72%);
+  filter: blur(18px);
+  z-index: 1;
+}
+
+.tcl-hero-monolith {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(0 -8px 28px rgba(32, 118, 225, 0.32)) drop-shadow(0 0 18px rgba(16, 185, 129, 0.18));
+}
+
+.tcl-hero-top {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  padding: 68px 24px 20px;
+  max-width: 860px;
+  margin: 0 auto;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.75);
+}
+
+.tcl-hero-title {
+  font-size: clamp(2.75rem, 4.5vw, 4rem);
+  line-height: 1.05;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+}
+
+.tcl-hero-subtitle {
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  font-weight: 400;
+  color: #E2E4E6;
+  margin-top: 8px;
+}
+
+.tcl-hero-sub2 {
+  font-size: 0.875rem;
+  color: var(--emerald-bright);
+  margin-top: 6px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.tcl-hero-cta {
+  margin-top: 24px;
+}
+
+/* =========================================================
+   BLOCK 1: TESLA 3-BADGE GROUP ON PURE BLACK
+   (paddingBlockStart: 168px, paddingBlockEnd: 168px, gap: 80px)
+   ========================================================= */
+.tcl-badge-section {
+  background: #000000;
+  padding: 148px 48px;
+  display: flex;
+  justify-content: center;
+}
+
+.tcl-badge-group {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 0;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.tcl-badge-item {
+  flex: 1;
+  text-align: center;
+  padding: 8px 48px;
+  border-right: 1px solid rgba(255, 255, 255, 0.16);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tcl-badge-item:last-child {
+  border-right: none;
+}
+
+.tcl-badge-topline {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.tcl-badge-num {
+  font-size: clamp(2.75rem, 4.4vw, 4rem);
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: #FFFFFF;
+}
+
+.tcl-badge-num.emerald {
+  color: var(--emerald-bright);
+}
+
+.tcl-badge-unit {
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.tcl-badge-bottomline {
+  margin-top: 10px;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+/* =========================================================
+   BLOCK 2 & BLOCK 4: TESLA 21:9 MEDIA CAROUSEL + OVERBAR FLUID TABS
+   ========================================================= */
+.tcl-carousel-section {
+  background: #000000;
+  padding: 40px 0 120px;
+}
+
+.tcl-carousel-media-wrap {
+  max-width: 1344px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.tcl-carousel-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  background: #000000;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.tcl-carousel-stage.aspect-16-9 {
+  aspect-ratio: 16 / 9;
+}
+
+.tcl-carousel-stage img,
+.tcl-carousel-stage video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overbar Fluid 3-Col or 4-Col Navigation Tabs */
+.tcl-overbar-tabs {
+  max-width: 1120px;
+  margin: 36px auto 0;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.tcl-overbar-tabs.cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.tcl-overbar-tab {
+  background: transparent;
+  border: none;
+  border-top: 3px solid #393C41;
+  padding-top: 18px;
+  text-align: left;
+  cursor: pointer;
+  color: #8E8E93;
+  transition: all 0.22s ease;
+}
+
+.tcl-overbar-tab:hover {
+  border-top-color: #6E7278;
+  color: #D0D1D2;
+}
+
+.tcl-overbar-tab.active {
+  border-top-color: var(--emerald-bright);
+  color: #FFFFFF;
+}
+
+.tcl-overbar-tab-title {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: inherit;
+}
+
+.tcl-overbar-tab.active .tcl-overbar-tab-title {
+  color: #FFFFFF;
+}
+
+.tcl-overbar-tab-copy {
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: inherit;
+}
+
+/* =========================================================
+   BLOCK 3, 5, 8: FULL-BLEED PHOTO + BOTTOM SCRIM + HEADER GROUP
+   ========================================================= */
+.tcl-text-on-media {
+  position: relative;
+  width: 100%;
+  background: #000000;
+}
+
+.tcl-full-bleed-media {
+  position: relative;
+  width: 100%;
+  height: 82vh;
+  min-height: 560px;
+  max-height: 920px;
+  overflow: hidden;
+}
+
+.tcl-full-bleed-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Bottom gradient fade into pure #000000 exactly like Tesla */
+.tcl-full-bleed-media::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 38%;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.78) 65%, #000000 100%);
+  pointer-events: none;
+}
+
+.tcl-header-group-center {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 48px 24px 96px;
+  text-align: center;
+  background: #000000;
+}
+
+.tcl-header-group-left {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 48px 48px 112px;
+  background: #000000;
+}
+
+/* Tesla 40-60 and 30-70 Split Header Layout */
+.tcl-split-header {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 56px 48px 120px;
+  display: grid;
+  grid-template-columns: 4fr 6fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.tcl-split-header.ratio-30-70 {
+  grid-template-columns: 3.5fr 6.5fr;
+}
+
+.tcl-h2 {
+  font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  color: #FFFFFF;
+}
+
+.tcl-body-copy {
+  font-size: 0.975rem;
+  line-height: 1.65;
+  color: #D0D1D2;
+  font-weight: 400;
+}
+
+.tcl-header-group-center .tcl-h2 {
+  margin-bottom: 16px;
+}
+
+.tcl-header-group-left .tcl-h2 {
+  margin-bottom: 16px;
+}
+
+.tcl-header-group-left .tcl-body-copy {
+  max-width: 780px;
+}
+
+.tds-inline-link {
+  color: #FFFFFF;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.18s ease;
+}
+
+.tds-inline-link:hover {
+  color: var(--emerald-bright);
+}
+
+/* =========================================================
+   BLOCK 6: TESLA VERTICAL 3-SLIDE SPLIT SHOWCASE
+   (Capture More Solar / Avoid Peak Pricing / Earn by Selling)
+   ========================================================= */
+.tcl-vertical-showcase {
+  background: #000000;
+  padding: 64px 48px 128px;
+}
+
+.tcl-vertical-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 7fr 4.5fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.tcl-vertical-media {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #0B0D10;
+}
+
+.tcl-vertical-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.tcl-vertical-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.tcl-v-tab {
+  background: transparent;
+  border: none;
+  border-left: 3px solid #2E3136;
+  padding: 6px 0 6px 24px;
+  text-align: left;
+  cursor: pointer;
+  color: #8E8E93;
+  transition: all 0.22s ease;
+}
+
+.tcl-v-tab:hover {
+  border-left-color: #6E7278;
+  color: #D0D1D2;
+}
+
+.tcl-v-tab.active {
+  border-left-color: var(--emerald-bright);
+  color: #FFFFFF;
+}
+
+.tcl-v-tab h3 {
+  font-size: 1.35rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: inherit;
+}
+
+.tcl-v-tab p {
+  font-size: 0.925rem;
+  line-height: 1.6;
+  color: inherit;
+}
+
+/* =========================================================
+   BLOCK 7 & BLOCK 9: CONSTRAINED GALLERY MEDIA
+   ========================================================= */
+.tcl-gallery-section {
+  background: #000000;
+  padding-top: 24px;
+}
+
+.tcl-gallery-media {
+  max-width: 1344px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.tcl-gallery-media img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  display: block;
+}
+
+/* =========================================================
+   TESLA DESIGN STUDIO CONFIGURATOR (/powerwall/design Dark UI)
+   ========================================================= */
+.tcl-design-studio {
+  background: #000000;
+  border-top: 1px solid #1B1E23;
+  border-bottom: 1px solid #1B1E23;
+  padding: 112px 48px;
+}
+
+.tcl-studio-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 6.5fr 5.5fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.tcl-studio-preview {
+  position: sticky;
+  top: 84px;
+  background: #0D1014;
+  border: 1px solid #22262C;
+  border-radius: 8px;
+  padding: 36px;
+}
+
+.tcl-studio-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--emerald-bright);
+  margin-bottom: 10px;
+}
+
+.tcl-studio-cashflow {
+  font-size: clamp(2.5rem, 3.8vw, 3.4rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--emerald-bright);
+  line-height: 1.08;
+}
+
+.tcl-studio-sub {
+  font-size: 0.925rem;
+  color: #A0A4A8;
+  margin-top: 8px;
+  margin-bottom: 28px;
+}
+
+/* Real Hardware Product Switcher inside Studio */
+.tcl-hw-showcase {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 20px;
+  align-items: center;
+  background: #14181E;
+  border: 1px solid #262B33;
+  border-radius: 6px;
+  padding: 16px 20px;
+  margin-bottom: 28px;
+}
+
+.tcl-hw-showcase img {
+  width: 100px;
+  height: 106px;
+  object-fit: contain;
+  background: #FFFFFF;
+  border-radius: 4px;
+  padding: 6px;
+}
+
+.tcl-hw-tabs {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.tcl-hw-pill {
+  background: #1F242D;
+  border: 1px solid #323842;
+  color: #D0D1D2;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 5px 11px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.tcl-hw-pill.active {
+  background: var(--emerald);
+  border-color: var(--emerald);
+  color: #000000;
+}
+
+.tcl-bars-box {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.tcl-bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: #B8BABC;
+  margin-bottom: 6px;
+}
+
+.tcl-bar-track {
+  height: 8px;
+  background: #1E2229;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.tcl-bar-fill-old {
+  height: 100%;
+  width: 100%;
+  background: #525760;
+}
+
+.tcl-bar-fill-new {
+  height: 100%;
+  width: 64%;
+  background: var(--emerald-bright);
+  transition: width 0.3s ease;
+}
+
+.tcl-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  border-top: 1px solid #22262C;
+  padding-top: 24px;
+}
+
+.tcl-kpi-cell span {
+  display: block;
+  font-size: 0.78rem;
+  color: #8E8E93;
+  margin-bottom: 4px;
+}
+
+.tcl-kpi-cell strong {
+  font-family: var(--font-mono);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.tcl-kpi-cell strong.emerald {
+  color: var(--emerald-bright);
+}
+
+/* Studio Right Column Controls */
+.tcl-studio-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.tcl-studio-heading {
+  font-size: 1.85rem;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.tcl-control-box {
+  background: #111419;
+  border: 1px solid #252930;
+  border-radius: 6px;
+  padding: 20px 24px;
+}
+
+.tcl-slider-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 14px;
+}
+
+.tcl-slider-top span {
+  font-size: 0.9rem;
+  color: #D0D1D2;
+}
+
+.tcl-slider-top strong {
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  color: var(--emerald-bright);
+}
+
+input[type="range"].tcl-range {
+  width: 100%;
+  accent-color: var(--emerald-bright);
+  cursor: pointer;
+}
+
+.tcl-range-marks {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #787C82;
+  margin-top: 8px;
+}
+
+.tcl-option-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tcl-option-card {
+  background: #111419;
+  border: 1px solid #2A2E37;
+  border-radius: 4px;
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.tcl-option-card:hover {
+  border-color: #525866;
+}
+
+.tcl-option-card.active {
+  border: 2px solid var(--emerald-bright);
+  background: rgba(16, 185, 129, 0.07);
+  padding: 17px 19px;
+}
+
+.tcl-opt-badge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--emerald-bright);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 3px;
+}
+
+.tcl-opt-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.tcl-opt-desc {
+  font-size: 0.8rem;
+  color: #8E8E93;
+  margin-top: 3px;
+}
+
+.tcl-opt-price {
+  text-align: right;
+  white-space: nowrap;
+  margin-left: 16px;
+}
+
+.tcl-opt-price strong {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  color: #FFFFFF;
+}
+
+.tcl-opt-price span {
+  font-size: 0.75rem;
+  color: var(--emerald-bright);
+}
+
+.tcl-loan-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.tcl-loan-btn {
+  background: #111419;
+  border: 1px solid #2A2E37;
+  border-radius: 4px;
+  padding: 12px 14px;
+  text-align: left;
+  cursor: pointer;
+  color: #D0D1D2;
+  transition: all 0.18s ease;
+}
+
+.tcl-loan-btn.active {
+  border: 2px solid var(--emerald-bright);
+  background: rgba(16, 185, 129, 0.08);
+  color: #FFFFFF;
+}
+
+.tcl-loan-btn strong {
+  display: block;
+  font-size: 0.875rem;
+  color: #FFFFFF;
+}
+
+.tcl-loan-btn span {
+  font-size: 0.75rem;
+  color: #8E8E93;
+}
+
+/* =========================================================
+   BLOCK 10: TESLA SPECS TABLE (dx-specs-table on #000000)
+   ========================================================= */
+.tcl-specs-section {
+  background: #000000;
+  padding: 120px 48px;
+}
+
+.tcl-specs-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.tcl-specs-header {
+  font-size: clamp(1.85rem, 2.6vw, 2.35rem);
+  font-weight: 500;
+  color: #FFFFFF;
+  margin-bottom: 28px;
+}
+
+.tcl-specs-tabs {
+  display: flex;
+  gap: 12px;
+  border-bottom: 1px solid #22252A;
+  padding-bottom: 20px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.tcl-spec-tab {
+  background: transparent;
+  border: 1px solid #393C41;
+  color: #D0D1D2;
+  height: 40px;
+  padding: 0 24px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.tcl-spec-tab.active {
+  background: #FFFFFF;
+  border-color: #FFFFFF;
+  color: #000000;
+  font-weight: 600;
+}
+
+.tcl-spec-category {
+  margin-bottom: 56px;
+}
+
+.tcl-spec-cat-title {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+}
+
+.tcl-spec-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.tcl-spec-cell {
+  border-top: 1px solid #2A2D34;
+  padding-top: 16px;
+}
+
+.tcl-spec-label {
+  font-size: 0.85rem;
+  color: #8E8E93;
+  margin-bottom: 6px;
+}
+
+.tcl-spec-val {
+  font-size: 0.975rem;
+  line-height: 1.55;
+  color: #FFFFFF;
+  font-weight: 400;
+}
+
+.tcl-spec-val strong {
+  color: var(--emerald-bright);
+  font-weight: 600;
+}
+
+.tcl-specs-footnote {
+  font-size: 0.78rem;
+  color: #787C82;
+  margin-top: 24px;
+}
+
+/* =========================================================
+   BLOCK 11: TESLA ORDER SHOWCASE (Power Everything on #000000)
+   ========================================================= */
+.tcl-order-showcase {
+  background: #000000;
+  padding: 64px 24px 120px;
+  text-align: center;
+}
+
+.tcl-order-showcase-img {
+  max-width: 780px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto 24px;
+  display: block;
+}
+
+.tcl-order-showcase h2 {
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-weight: 500;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+}
+
+.tcl-order-showcase p {
+  font-size: 1rem;
+  color: #D0D1D2;
+  max-width: 540px;
+  margin: 0 auto 28px;
+}
+
+/* Modal / Inline Order Drawer */
+.tcl-lead-drawer {
+  max-width: 720px;
+  margin: 56px auto 0;
+  background: #0E1116;
+  border: 1px solid #242932;
+  border-radius: 6px;
+  padding: 32px;
+  text-align: left;
+}
+
+.tcl-lead-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.tcl-input-group label {
+  display: block;
+  font-size: 0.78rem;
+  color: #9CA0A6;
+  margin-bottom: 6px;
+}
+
+.tcl-input-group input,
+.tcl-input-group select {
+  width: 100%;
+  height: 42px;
+  background: #171B22;
+  border: 1px solid #2E3440;
+  border-radius: 4px;
+  padding: 0 14px;
+  color: #FFFFFF;
+  font-size: 0.9rem;
+}
+
+.tcl-input-group input:focus,
+.tcl-input-group select:focus {
+  outline: none;
+  border-color: var(--emerald-bright);
+}
+
+/* =========================================================
+   TESLA MINIMALIST HORIZONTAL FOOTER (tds-footer)
+   ========================================================= */
+.tds-footer {
+  background: #000000;
+  padding: 32px 24px 48px;
+  border-top: 1px solid #16181C;
+  text-align: center;
+}
+
+.tds-footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  list-style: none;
+  font-size: 0.78rem;
+  color: #8E8E93;
+}
+
+.tds-footer-links a:hover {
+  color: #FFFFFF;
+}
+
+.toast-banner {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  background: var(--emerald);
+  color: #000000;
+  font-weight: 600;
+  padding: 14px 24px;
+  border-radius: 4px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+  z-index: 2000;
+  display: none;
+}
+
+@media (max-width: 980px) {
+  .tds-nav-center {
+    display: none;
+  }
+  .tcl-badge-group {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .tcl-badge-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    padding-bottom: 32px;
+  }
+  .tcl-overbar-tabs,
+  .tcl-overbar-tabs.cols-3,
+  .tcl-split-header,
+  .tcl-split-header.ratio-30-70,
+  .tcl-vertical-inner,
+  .tcl-studio-container,
+  .tcl-spec-grid {
+    grid-template-columns: 1fr;
+  }
+  .tcl-studio-preview {
+    position: static;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- SECTION 0: TESLA TOP PROMO RIBBON (tcl-banner) -->
+  <div class="tds-banner">
+    <span data-i18n="banner_text">支持 Westpac 5年0息 ($50k) 与 ANZ/ASB/BNZ 1% 绿色贷款 · 首付 $0 首月净赚 +$176 NZD</span>
+    <a href="#design-studio" data-i18n="banner_cta">立即测算您的电费账单</a>
+  </div>
+
+  <!-- TESLA TRANSPARENT STICKY HEADER (tds-site-header) -->
+  <header class="tds-header">
+    <div class="tds-header-inner">
+      <a href="#" class="tds-wordmark">
+        <span class="tds-wordmark-led"></span>
+        <span>AOTEAROA VOLT</span>
+      </a>
+
+      <nav class="tds-nav-center">
+        <a href="#power-home" data-i18n="nav_1">PowerVault 16</a>
+        <a href="#energy-flow" data-i18n="nav_2">分时储电与并网</a>
+        <a href="#storm-watch" data-i18n="nav_3">Storm Watch 备电</a>
+        <a href="#design-studio" data-i18n="nav_4">在线定制 ($6,000电费测算)</a>
+        <a href="#specs" data-i18n="nav_5">技术参数 (Specs)</a>
+        <a href="poster.html?v=20261109_v5" class="poster-link" data-i18n="nav_poster">终端获客海报</a>
+      </nav>
+
+      <div class="tds-nav-right">
+        <div class="tds-lang-switch" role="group" aria-label="Language Switch">
+          <button type="button" class="tds-lang-btn active" id="btn-lang-zh" onclick="setLanguage('zh')">中文</button>
+          <button type="button" class="tds-lang-btn" id="btn-lang-en" onclick="setLanguage('en')">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- =========================================================
+         BLOCK 0: TESLA 100VH FULL-VIEWPORT HERO (ROTATING 3D BLUE PLANET)
+         ========================================================= -->
+    <section class="tcl-hero">
+      <!-- Layer 1: Slowly Rotating 3D Blue Planet Background (WebGL 3D Sphere + CSS Orbital Fallback) -->
+      <div class="tcl-planet-stage" aria-hidden="true">
+        <div class="tcl-planet-dome">
+          <div class="tcl-planet-spin-disc"></div>
+          <div class="tcl-planet-atmosphere"></div>
+        </div>
+        <canvas id="hero-planet-canvas" class="tcl-planet-canvas"></canvas>
+      </div>
+
+      <!-- Layer 2: Freestanding White PowerVault Monolith with Emerald LED -->
+      <div class="tcl-hero-monolith-wrap">
+        <div class="tcl-monolith-aura"></div>
+        <img src="assets/tesla/powervault_monolith_cutout.png?v=20261110_real_sunexus" alt="PowerVault 16kWh Home Battery" class="tcl-hero-monolith" />
+      </div>
+
+      <!-- Layer 3: Top Title, Subtitle & Dual CTA Buttons -->
+      <div class="tcl-hero-top">
+        <h1 class="tcl-hero-title" data-i18n="hero_h1">PowerVault</h1>
+        <p class="tcl-hero-subtitle" data-i18n="hero_sub">16.08 kWh 磷酸铁锂全屋储能 · 源头直供新西兰家庭</p>
+        <p class="tcl-hero-sub2" data-i18n="hero_sub2">单机容量比 Powerwall 3 大 19% · 裸机 $4,190 NZD / 光储全包 $16,900 NZD</p>
+
+        <div class="tds-btn-group tcl-hero-cta">
+          <a href="#design-studio" class="tds-btn tds-btn--primary" data-i18n="hero_btn1">订购 PowerVault</a>
+          <a href="#design-studio" class="tds-btn tds-btn--white" data-i18n="hero_btn2">连同光伏一起订购</a>
+        </div>
+      </div>
+
+      <div></div>
+    </section>
+
+    <!-- =========================================================
+         BLOCK 1: TESLA 3-BADGE GROUP ON PURE BLACK (#000000)
+         ========================================================= -->
+    <section class="tcl-badge-section">
+      <div class="tcl-badge-group">
+        <div class="tcl-badge-item">
+          <div class="tcl-badge-topline">
+            <span class="tcl-badge-num emerald">16.08</span>
+            <span class="tcl-badge-unit">kWh</span>
+          </div>
+          <div class="tcl-badge-bottomline" data-i18n="badge_1_label">单机可用容量 (比 Powerwall 3 多 19%)</div>
+        </div>
+
+        <div class="tcl-badge-item">
+          <div class="tcl-badge-topline">
+            <span class="tcl-badge-num">+$176</span>
+            <span class="tcl-badge-unit" data-i18n="badge_2_unit">/月</span>
+          </div>
+          <div class="tcl-badge-bottomline" data-i18n="badge_2_label">0% 银行绿贷首月净赚正现金流 ($6k/年账单)</div>
+        </div>
+
+        <div class="tcl-badge-item">
+          <div class="tcl-badge-topline">
+            <span class="tcl-badge-num">48–208</span>
+            <span class="tcl-badge-unit">kWh</span>
+          </div>
+          <div class="tcl-badge-bottomline" data-i18n="badge_3_label">模块化并机扩容 (从城市别墅到牧场微网)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         BLOCK 2: TESLA 21:9 EMERALD CURVE + 4-COL OVERBAR TABS
+         ========================================================= -->
+    <section class="tcl-carousel-section">
+      <div class="tcl-carousel-media-wrap">
+        <div class="tcl-carousel-stage">
+          <img id="fleet-curve-img" src="assets/tesla/02_slide1.png" alt="PowerVault Growth & Cost Advantage Curve" />
+        </div>
+      </div>
+
+      <div class="tcl-overbar-tabs">
+        <button type="button" class="tcl-overbar-tab active" onclick="switchCurveSlide(0, this)">
+          <span class="tcl-overbar-tab-title" data-i18n="c1_t1">源头工厂直通 – 砍掉 $7,100+ 溢价</span>
+          <p class="tcl-overbar-tab-copy" data-i18n="c1_d1">江苏光链 314Ah LFP 储能箱与安徽华晟 HJT 异质结双面组件源头直供，彻底绕开新西兰本地多层批发商加价。</p>
+        </button>
+
+        <button type="button" class="tcl-overbar-tab" onclick="switchCurveSlide(1, this)">
+          <span class="tcl-overbar-tab-title" data-i18n="c1_t2">奥克兰 & 基督城双仓现货</span>
+          <p class="tcl-overbar-tab-copy" data-i18n="c1_d2">告别 60 天海运盲盒。南北岛本地仓常备 SUN(P)-16KWH 与 SUN(T)-25KWH 现货，支持屋主全包或电工单台批发提货。</p>
+        </button>
+
+        <button type="button" class="tcl-overbar-tab" onclick="switchCurveSlide(2, this)">
+          <span class="tcl-overbar-tab-title" data-i18n="c1_t3">2026 分时电价 5.2 倍价差套利</span>
+          <p class="tcl-overbar-tab-copy" data-i18n="c1_d3">针对新西兰 8c 光伏贱卖与 42c 晚高峰刺客，16.08kWh 超大肚量把白天绿电 100% 留到晚高峰自用。</p>
+        </button>
+
+        <button type="button" class="tcl-overbar-tab" onclick="switchCurveSlide(3, this)">
+          <span class="tcl-overbar-tab-title" data-i18n="c1_t4">四大银行 0%–1% 绿贷直批</span>
+          <p class="tcl-overbar-tab-copy" data-i18n="c1_d4">24 小时内出具符合 Westpac (5年0息)、ANZ、ASB、BNZ (3年1%) 审核规范的 Turnkey 报价单，零首付装机。</p>
+        </button>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         BLOCK 3: FULL-BLEED HOUSE PHOTO + CENTERED HEADER GROUP
+         (Power Your Home, Save Money)
+         ========================================================= -->
+    <section class="tcl-text-on-media" id="power-home">
+      <div class="tcl-full-bleed-media">
+        <img src="assets/tesla/03_power_home_av.jpg?v=20261110_real_sunexus" alt="Power Your Home, Save Money with PowerVault" />
+      </div>
+
+      <div class="tcl-header-group-center">
+        <h2 class="tcl-h2" data-i18n="b3_h2">点亮全屋，每年省下 $5,496 电费</h2>
+        <p class="tcl-body-copy" data-i18n="b3_copy">
+          PowerVault 是一款高能量密度的家庭磷酸铁锂储能系统，可高效储存华晟 HJT 太阳能组件发出的绿电或夜间低谷电网电力。无论是白天、42c/kWh 的昂贵晚高峰、还是飓风断网期间，它都能全天候为您家中的热泵空调、地暖、厨房电器与电动汽车供电。
+        </p>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         BLOCK 4: 3D ISOMETRIC HOME ENERGY FLOW + 3-COL OVERBAR TABS
+         (Store Extra Energy / Use Energy / Save and Earn)
+         ========================================================= -->
+    <section class="tcl-carousel-section" id="energy-flow">
+      <div class="tcl-carousel-media-wrap">
+        <div class="tcl-carousel-stage aspect-16-9">
+          <img id="flow-stage-img" src="assets/tesla/04_store_use_save_01_av.jpg?v=20261110_real_sunexus" alt="Store Extra Energy with PowerVault" />
+        </div>
+      </div>
+
+      <div class="tcl-overbar-tabs cols-3">
+        <button type="button" class="tcl-overbar-tab active" onclick="switchFlowSlide(0, this)">
+          <span class="tcl-overbar-tab-title" data-i18n="b4_t1">储存多余绿电 (Store Extra Energy)</span>
+          <p class="tcl-overbar-tab-copy" data-i18n="b4_d1">当屋顶 6.6kW–10.5kW 华晟双面光伏发电量超过白天的即时消耗时，PowerVault 会自动将多余电力存入 16.08kWh 电池，拒绝以 8c/kWh 贱卖给电网；阴雨天也可在夜间 15c 低谷时段自动从电网补能。</p>
+        </button>
+
+        <button type="button" class="tcl-overbar-tab" onclick="switchFlowSlide(1, this)">
+          <span class="tcl-overbar-tab-title" data-i18n="b4_t2">全天候随心用电 (Use Energy)</span>
+          <p class="tcl-overbar-tab-copy" data-i18n="b4_d2">每晚 17:00–21:00 当新西兰零售电价飙升至 42c/kWh 时，PowerVault 自动释放日间存满的免费绿电，独立支撑全屋热泵、电磁炉、热水器与 EV 充电，实现晚高峰电网零买电。</p>
+        </button>
+
+        <button type="button" class="tcl-overbar-tab" onclick="switchFlowSlide(2, this)">
+          <span class="tcl-overbar-tab-title" data-i18n="b4_t3">削峰套利与零逆流秒批 (Save and Earn)</span>
+          <p class="tcl-overbar-tab-copy" data-i18n="b4_d3">智能 EMS 根据分时电价自动执行削峰填谷或余电高价卖回电网（最高 23c/kWh）；针对变压器受限街区，更支持一键开启 CT 零逆流模式，免排队 5 天内直接并网发电。</p>
+        </button>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         BLOCK 5: FULL-BLEED NIGHT STORM PHOTO + HEADER GROUP
+         (Storms Happen—Outages Don’t Have To)
+         ========================================================= -->
+    <section class="tcl-text-on-media" id="storm-watch">
+      <div class="tcl-full-bleed-media">
+        <img src="assets/tesla/05_storms_happen_av.jpg?v=20261110_real_sunexus" alt="Storms Happen - Outages Don't Have To" />
+      </div>
+
+      <div class="tcl-header-group-left">
+        <h2 class="tcl-h2" data-i18n="b5_h2">飓风与断网常有——但全屋停电不必再有</h2>
+        <p class="tcl-body-copy" data-i18n="b5_copy">
+          在电网瘫痪时守住全屋光明。当气象预警气旋或极端风暴来临时，<a href="#design-studio" class="tds-inline-link">Storm Watch 备电模式</a>会自动将 PowerVault 充至 100% 满电状态。一旦外网断电，系统将在 <strong>&lt; 10 毫秒</strong>内无感切换至离网微网供电，电脑不重启、Wi-Fi 不断连、冰箱与全屋照明照常运行，并支持柴油发电机 Dry-Contact 自动点火联动。
+        </p>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         BLOCK 6: TESLA VERTICAL 3-SLIDE SPLIT SHOWCASE
+         (Capture More Solar / Avoid Peak Pricing / Earn by Selling)
+         ========================================================= -->
+    <section class="tcl-vertical-showcase">
+      <div class="tcl-vertical-inner">
+        <div class="tcl-vertical-media">
+          <img id="v-showcase-img" src="assets/tesla/06_capture_solar.jpg?v=20261110_real_sunexus" alt="Capture More Solar" />
+        </div>
+
+        <div class="tcl-vertical-tabs">
+          <button type="button" class="tcl-v-tab active" onclick="switchVerticalSlide(0, this)">
+            <h3 data-i18n="b6_t1">捕获更多双面太阳能 (Capture More Solar)</h3>
+            <p data-i18n="b6_d1">标配安徽华晟 HJT 异质结双面双玻全黑组件（23%+ 转换效率），在奥克兰阴雨天与南岛冬季晨昏弱光环境下比普通 PERC 组件多发电 10%–15%，白天发的每一度电都悉数收入囊中。</p>
+          </button>
+
+          <button type="button" class="tcl-v-tab" onclick="switchVerticalSlide(1, this)">
+            <h3 data-i18n="b6_t2">彻底告别晚高峰电价刺客 (Avoid Peak Pricing)</h3>
+            <p data-i18n="b6_d2">针对新西兰已装太阳能却无电池的 60,000+ 存量家庭，仅需半天即可加装 16.08kWh PowerVault 升级包（硬件 $6,490 / 包安装 $8,900），把白天白送电网的绿电变成夜晚 42c 的真金白银。</p>
+          </button>
+
+          <button type="button" class="tcl-v-tab" onclick="switchVerticalSlide(2, this)">
+            <h3 data-i18n="b6_t3">App 实时账本与余电变现 (Earn by Selling)</h3>
+            <p data-i18n="b6_d3">手机端 24 小时查看屋顶发电、电池 SOC、家庭负载与每日省钱净额。支持 2026 新西兰电力局 ≤10kW 快速通道并网，余电自动高价回售抵扣账单。</p>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         BLOCK 7: 21:9 APP SHOWCASE + 40/60 SPLIT HEADER
+         (Maximum Efficiency, Lower Cost)
+         ========================================================= -->
+    <section class="tcl-gallery-section">
+      <div class="tcl-gallery-media">
+        <img src="assets/tesla/09_max_efficiency_av.jpg?v=20261110_real_sunexus" alt="PowerVault App & Operational Modes" />
+      </div>
+
+      <div class="tcl-split-header">
+        <div>
+          <h2 class="tcl-h2" data-i18n="b7_h2">更大容量，立省 $7,600+ 落地总价</h2>
+        </div>
+        <div>
+          <p class="tcl-body-copy" data-i18n="b7_copy">
+            单台 PowerVault 即可提供 16.08 kWh 真实可用容量（比 13.5 kWh 的 Powerwall 3 多出 19%），含 6.6kW 华晟 HJT 光伏与持牌电工全包安装仅需 <strong>$16,900 NZD</strong>——相比新西兰传统连锁品牌动辄 $24,500–$28,500 NZD 的报价，直接为您省下一辆家用代步车。同时支持 100% 产权买断，拒绝锁死 20 年的租约陷阱。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         BLOCK 8: FULL-BLEED SNOW HOUSE PHOTO + 30/70 SPLIT HEADER
+         (Energy That’s There When You Need It)
+         ========================================================= -->
+    <section class="tcl-text-on-media">
+      <div class="tcl-full-bleed-media">
+        <img src="assets/tesla/10_energy_there_av.jpg?v=20261110_real_sunexus" alt="Energy That's There When You Need It" />
+      </div>
+
+      <div class="tcl-split-header ratio-30-70">
+        <div>
+          <h2 class="tcl-h2" data-i18n="b8_h2">风雪严寒，全天候可靠守护</h2>
+        </div>
+        <div>
+          <p class="tcl-body-copy" data-i18n="b8_copy">
+            备电系统只有在极端环境下依然稳如泰山才叫可靠。PowerVault 采用 IP65 级全天候防尘防水铸铝与防腐机身，可在 -20°C 至 55°C 宽温域及高盐雾海岸气候下稳定运行。内置智能 BMS 温控与主动均衡系统，电芯循环寿命高达 ≥8,000 次，无惧皇后镇风雪与奥克兰冬季寒潮。<br><br>
+            <a href="#specs" class="tds-inline-link" data-i18n="b8_link">查看 AS/NZS 5139 & IEC 62619 安全认证规格 →</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         BLOCK 9: GARAGE DUAL-UNIT + EV + 40/60 SPLIT HEADER
+         (Charge on Solar)
+         ========================================================= -->
+    <section class="tcl-gallery-section">
+      <div class="tcl-gallery-media">
+        <img src="assets/tesla/11_charge_solar_av.jpg?v=20261110_real_sunexus" alt="Charge on Solar with Dual PowerVault" />
+      </div>
+
+      <div class="tcl-split-header">
+        <div>
+          <h2 class="tcl-h2" data-i18n="b9_h2">纯净绿电充车，最高扩容至 208 kWh</h2>
+        </div>
+        <div>
+          <p class="tcl-body-copy" data-i18n="b9_copy">
+            PowerVault 的清洁电力不仅限于室内。您可以将系统设置为仅使用多余太阳能为电动汽车（EV）免费充电；随着家庭用电增长，低压版支持最多 16 台并机，高压版 SUN(T)-25KWH 支持模块化堆叠，牧场与工商业更可直上 208 kWh 液冷/风冷高压一体柜。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         BLOCK 9.5: TESLA DESIGN STUDIO (/powerwall/design Dark Configurator)
+         ========================================================= -->
+    <section class="tcl-design-studio" id="design-studio">
+      <div class="tcl-studio-container">
+        <!-- Left Sticky Live Cashflow & Real Hardware Preview -->
+        <div class="tcl-studio-preview">
+          <div class="tcl-studio-eyebrow" data-i18n="st_eyebrow">POWERVAULT DESIGN STUDIO · 新西兰家庭现金流精算</div>
+          <div class="tcl-studio-cashflow" id="res-monthly-net">+$176 NZD / 月</div>
+          <p class="tcl-studio-sub" id="res-sub-summary">安装首月起：省下的电费 ($458/月) 远超银行绿贷月供 ($282/月)</p>
+
+          <!-- Real Factory Hardware Showcase Switcher -->
+          <div class="tcl-hw-showcase">
+            <img id="studio-hw-img" src="assets/sunp_16kwh_unit.png?v=20261110_real_sunexus" alt="SUN(P)-16KWH Hardware" />
+            <div>
+              <div style="font-family:var(--font-mono);font-size:0.72rem;color:var(--emerald-bright);" id="studio-hw-code">MODEL: SUN(P)-16KWH · 51.2V 314Ah LFP</div>
+              <div style="font-size:1rem;font-weight:600;color:#fff;margin-top:2px;" id="studio-hw-title">PowerVault 16kWh 旗舰落地/壁挂储能箱</div>
+              <div style="font-size:0.8rem;color:#9CA0A6;margin-top:2px;" id="studio-hw-desc">单机可用 16.08 kWh · 裸机直购 $4,190 NZD · 全包套餐 $8,900 起</div>
+              <div class="tcl-hw-tabs">
+                <button type="button" class="tcl-hw-pill active" onclick="previewHardware(0, this)">SUN(P)-16kWh 旗舰</button>
+                <button type="button" class="tcl-hw-pill" onclick="previewHardware(1, this)">SUN(T)-25kWh 高压塔</button>
+                <button type="button" class="tcl-hw-pill" onclick="previewHardware(2, this)">SUN(T)-10kWh 紧凑版</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="tcl-bars-box">
+            <div>
+              <div class="tcl-bar-label">
+                <span data-i18n="bar_old_lbl">安装前：每月交给电力公司的纯支出</span>
+                <strong id="bar-old-val">$500 / 月</strong>
+              </div>
+              <div class="tcl-bar-track"><div class="tcl-bar-fill-old"></div></div>
+            </div>
+            <div>
+              <div class="tcl-bar-label">
+                <span data-i18n="bar_new_lbl">安装后：银行绿贷月供 + 剩余极少电费</span>
+                <strong style="color:var(--emerald-bright);" id="bar-new-val">$324 / 月 ($282月供 + $42余电)</strong>
+              </div>
+              <div class="tcl-bar-track"><div class="tcl-bar-fill-new" id="bar-new-fill"></div></div>
+            </div>
+          </div>
+
+          <div class="tcl-kpi-grid">
+            <div class="tcl-kpi-cell">
+              <span data-i18n="kpi_1">每年直接砍掉电费</span>
+              <strong class="emerald" id="res-annual-save">$5,496 NZD</strong>
+            </div>
+            <div class="tcl-kpi-cell">
+              <span data-i18n="kpi_2">银行绿贷每月还款</span>
+              <strong id="res-loan-mo">$282 / 月 (0%息)</strong>
+            </div>
+            <div class="tcl-kpi-cell">
+              <span data-i18n="kpi_3">静态回本周期 (Payback)</span>
+              <strong id="res-payback">3.1 年 (寿命15年+)</strong>
+            </div>
+            <div class="tcl-kpi-cell">
+              <span data-i18n="kpi_4">10年累计免税净收益</span>
+              <strong class="emerald" id="res-10yr">+$46,420 NZD</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Configuration Stack -->
+        <div class="tcl-studio-controls">
+          <h2 class="tcl-studio-heading" data-i18n="st_right_h2">定制您的 PowerVault 系统</h2>
+
+          <!-- Step 1: Bill Slider -->
+          <div class="tcl-control-box">
+            <div class="tcl-slider-top">
+              <span data-i18n="st_step1">1. 您家庭目前的年电费账单</span>
+              <strong id="bill-display">$6,000 NZD / 年 ($500/月)</strong>
+            </div>
+            <input type="range" id="bill-slider" class="tcl-range" min="150" max="1200" step="25" value="500" oninput="updateStudioCalc()" />
+            <div class="tcl-range-marks">
+              <span>$2,400/yr ($200/mo)</span>
+              <span>$6,000/yr (NZ 典型家庭)</span>
+              <span>$14,400/yr (庄园/农场)</span>
+            </div>
+          </div>
+
+          <!-- Step 2: System Selection -->
+          <div>
+            <div style="font-size:0.875rem;color:#D0D1D2;margin-bottom:10px;" data-i18n="st_step2">2. 选择系统套餐（含全包交钥匙与硬件直购）</div>
+            <div class="tcl-option-stack">
+              <div class="tcl-option-card" onclick="selectPkg(0, this)">
+                <div>
+                  <span class="tcl-opt-badge">RETROFIT · 6万户老光伏加装首选</span>
+                  <div class="tcl-opt-title" data-i18n="pkg0_t">存量光伏加装 PowerVault 16kWh</div>
+                  <div class="tcl-opt-desc" data-i18n="pkg0_d">16.08kWh LFP + 6kW 混合逆变器 + 持牌安装 (单买电池仅 $4,190)</div>
+                </div>
+                <div class="tcl-opt-price">
+                  <strong>$8,900</strong>
+                  <span>$34 / 周 (0%绿贷)</span>
+                </div>
+              </div>
+
+              <div class="tcl-option-card active" onclick="selectPkg(1, this)">
+                <div>
+                  <span class="tcl-opt-badge">90% KIWI HOME BESTSELLER · 比 Powerwall 全包省 $7,600+</span>
+                  <div class="tcl-opt-title" data-i18n="pkg1_t">家庭旗舰 6.6kW HJT 光伏 + PowerVault 16kWh 全包</div>
+                  <div class="tcl-opt-desc" data-i18n="pkg1_d">15块华晟双面全黑组件 + 16.08kWh 储能 + 6kW 逆变器 + 全包安装并网</div>
+                </div>
+                <div class="tcl-opt-price">
+                  <strong>$16,900</strong>
+                  <span>$65 / 周 (0%绿贷)</span>
+                </div>
+              </div>
+
+              <div class="tcl-option-card" onclick="selectPkg(2, this)">
+                <div>
+                  <span class="tcl-opt-badge">LIFESTYLE & OFF-GRID · 大别墅与全离网微网</span>
+                  <div class="tcl-opt-title" data-i18n="pkg2_t">庄园满配 10.5kW 光伏 + 32kWh 双联 PowerVault</div>
+                  <div class="tcl-opt-desc" data-i18n="pkg2_d">24块 HJT 组件 + 32.16kWh 储能 + 10kW 柴发自动联动逆变器全包</div>
+                </div>
+                <div class="tcl-opt-price">
+                  <strong>$23,900</strong>
+                  <span>$92 / 周 (0%绿贷)</span>
+                </div>
+              </div>
+
+              <div class="tcl-option-card" onclick="selectPkg(3, this)">
+                <div>
+                  <span class="tcl-opt-badge">KIT-ONLY · 电工自装 / 源头硬件套件直购</span>
+                  <div class="tcl-opt-title" data-i18n="pkg3_t">6.6kW HJT + 16kWh 全套硬件裸机直发包</div>
+                  <div class="tcl-opt-desc" data-i18n="pkg3_d">奥克兰/基督城仓自提或 30% 定金锁舱直发 (单买 16kWh 电池+逆变器 $6,490)</div>
+                </div>
+                <div class="tcl-opt-price">
+                  <strong>$10,490</strong>
+                  <span>$40 / 周 (0%绿贷)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Bank Green Loan Selection -->
+          <div>
+            <div style="font-size:0.875rem;color:#D0D1D2;margin-bottom:10px;" data-i18n="st_step3">3. 选择新西兰银行绿色贷款 / 付款方式</div>
+            <div class="tcl-loan-grid">
+              <button type="button" class="tcl-loan-btn active" onclick="selectLoan(0, this)">
+                <strong>Westpac 0% 绿贷</strong>
+                <span>最高 $50k · 5年 0% 免息</span>
+              </button>
+              <button type="button" class="tcl-loan-btn" onclick="selectLoan(1, this)">
+                <strong>ANZ / ASB / BNZ 1%</strong>
+                <span>最高 $80k · 3年 1% 超低息</span>
+              </button>
+              <button type="button" class="tcl-loan-btn" onclick="selectLoan(2, this)">
+                <strong>Kiwibank +$2k 现金补贴</strong>
+                <span>直接减免 $2,000 NZD 本金</span>
+              </button>
+              <button type="button" class="tcl-loan-btn" onclick="selectLoan(3, this)">
+                <strong>全款 / 30% 定金锁舱</strong>
+                <span>无月供 · 约 3.1 年收回全款</span>
+              </button>
+            </div>
+          </div>
+
+          <a href="#order-now" class="tds-btn tds-btn--primary" style="width:100%;height:46px;font-size:0.95rem;" data-i18n="st_order_cta">
+            锁定该方案 · 获取 24h 银行绿贷正式报价单 →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         BLOCK 10: TESLA SPECS TABLE (dx-specs-table on #000000)
+         ========================================================= -->
+    <section class="tcl-specs-section" id="specs">
+      <div class="tcl-specs-inner">
+        <h2 class="tcl-specs-header" data-i18n="spec_h2">PowerVault Specs</h2>
+
+        <div class="tcl-specs-tabs" role="tablist">
+          <button type="button" class="tcl-spec-tab active" onclick="switchSpecTab(0, this)">PowerVault 16 (SUN(P)-16KWH)</button>
+          <button type="button" class="tcl-spec-tab" onclick="switchSpecTab(1, this)">PowerVault 25 HV (SUN(T)-25KWH5P)</button>
+          <button type="button" class="tcl-spec-tab" onclick="switchSpecTab(2, this)">对比 Powerwall 3 (13.5 kWh)</button>
+        </div>
+
+        <!-- TAB 0: PowerVault 16 -->
+        <div class="spec-panel" id="spec-panel-0">
+          <div class="tcl-spec-category">
+            <h3 class="tcl-spec-cat-title">Power</h3>
+            <div class="tcl-spec-grid">
+              <div class="tcl-spec-cell">
+                <div class="tcl-spec-label">Energy Capacity</div>
+                <div class="tcl-spec-val"><strong>16.08 kWh</strong> (51.2V 314Ah LFP)<br>比 Powerwall 3 (13.5 kWh) 多出 19% 可用容量</div>
+              </div>
+              <div class="tcl-spec-cell">
+                <div class="tcl-spec-label">On-Grid Power</div>
+                <div class="tcl-spec-val">6 kW – 10 kW continuous<br>符合 2026 新西兰 EA ≤10kW 快速并网通道</div>
+              </div>
+              <div class="tcl-spec-cell">
+                <div class="tcl-spec-label">Backup Power</div>
+                <div class="tcl-spec-val">160A Max Discharge<br><strong>&lt; 10 ms</strong> UPS 级全屋无感切换</div>
+              </div>
+              <div class="tcl-spec-cell">
+                <div class="tcl-spec-label">Solar & Inverter</div>
+                <div class="tcl-spec-val">6.6kW 华晟 HJT 双面组件<br>Deye / Victron 澳新认证混合逆变器</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tcl-spec-category">
+            <h3 class="tcl-spec-cat-title">Features & Pricing</h3>
+            <div class="tcl-spec-grid">
+              <div class="tcl-spec-cell">
+                <div class="tcl-spec-label">Size & Enclosure</div>
+                <div class="tcl-spec-val">IP65 户外全天候防尘防水<br>-20°C 至 55°C 宽温域运行</div>
+              </div>
+              <div class="tcl-spec-cell">
+                <div class="tcl-spec-label">Scalable</div>
+                <div class="tcl-spec-val">支持最多 16 台并机扩容<br>家庭常配 16.08 – 48.24 kWh</div>
+              </div>
+              <div class="tcl-spec-cell">
+                <div class="tcl-spec-label">Certification & Warranty</div>
+                <div class="tcl-spec-val">AS/NZS 4777.2 · AS/NZS 5139<br>IEC 62619 · UN38.3 · <strong>10 年质保</strong></div>
+              </div>
+              <div class="tcl-spec-cell">
+                <div class="tcl-spec-label">NZ Direct Price</div>
+                <div class="tcl-spec-val"><strong>$4,190 NZD</strong> (单16kWh电池裸机)<br><strong>$16,900 NZD</strong> (6.6kW+16kWh全包安装)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 1: PowerVault 25 HV -->
+        <div class="spec-panel" id="spec-panel-1" style="display:none;">
+          <div class="tcl-spec-category">
+            <h3 class="tcl-spec-cat-title">High-Voltage Stackable Tower (SUN(T)-25KWH5P)</h3>
+            <div class="tcl-spec-grid">
+              <div class="tcl-spec-cell">
+                <div class="tcl-spec-label">Energy Capacity</div>
+                <div class="tcl-spec-val"><strong>25.60 kWh</strong> (5×5.12kWh 模块化堆叠)<br>最高可扩展至 208 kWh 农场工商业微网</div>
+              </div>
+              <div class="tcl-spec-cell">
+                <div class="tcl-spec-label">System Voltage</div>
+                <div class="tcl-spec-val">256V – 512V 高压直驱架构<br>系统转换效率高达 98%+</div>
+              </div>
+              <div class="tcl-spec-cell">
+                <div class="tcl-spec-label">Off-Grid & Generator</div>
+                <div class="tcl-spec-val">10kW–15kW 三相/单相输出<br>标配柴油发电机 Dry-Contact 自动启停</div>
+              </div>
+              <div class="tcl-spec-cell">
+                <div class="tcl-spec-label">Installation</div>
+                <div class="tcl-spec-val">无线插拔堆叠设计 (Zero-Cable Stack)<br>持牌电工 30 分钟完成立柜安装</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: Benchmark vs Powerwall 3 -->
+        <div class="spec-panel" id="spec-panel-2" style="display:none;">
+          <div class="tcl-spec-category">
+            <h3 class="tcl-spec-cat-title">PowerVault 16kWh vs. Tesla Powerwall 3 (New Zealand Market)</h3>
+            <div class="tcl-spec-grid">
+              <div class="tcl-spec-cell">
+                <div class="tcl-spec-label">Usable Battery Capacity</div>
+                <div class="tcl-spec-val"><strong>PowerVault: 16.08 kWh (+19%)</strong><br>Powerwall 3: 13.5 kWh</div>
+              </div>
+              <div class="tcl-spec-cell">
+                <div class="tcl-spec-label">6.6kW Solar + Battery Turnkey</div>
+                <div class="tcl-spec-val"><strong>PowerVault: $16,900 NZD</strong><br>Powerwall 3: $24,500 – $28,500 NZD</div>
+              </div>
+              <div class="tcl-spec-cell">
+                <div class="tcl-spec-label">Hardware Kit / Trade Purchase</div>
+                <div class="tcl-spec-val"><strong>开放直购 ($4,190 单电池 / $6,490 储逆包)</strong><br>Powerwall 3: 锁死捆绑，不单卖裸机</div>
+              </div>
+              <div class="tcl-spec-cell">
+                <div class="tcl-spec-label">0% / 1% NZ Bank Green Loan</div>
+                <div class="tcl-spec-val"><strong>支持 Westpac 0% / ANZ / ASB / BNZ</strong><br>因总价低 $7,600+，每月净现金流高出 45%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="tcl-specs-footnote" data-i18n="spec_foot">
+          ¹ 数据基于江苏光链 SUN(P)-16KWH (51.2V 314Ah) 与安徽华晟 HJT 双面组件实测规格。² 符合新西兰 AS/NZS 4777.2:2020 及 AS/NZS 5139:2019 认证要求。
+        </p>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         BLOCK 11: TESLA ORDER SHOWCASE (Power Everything on #000000)
+         ========================================================= -->
+    <section class="tcl-order-showcase" id="order-now">
+      <img src="assets/tesla/12_power_everything_av.png?v=20261110_real_sunexus" alt="PowerVault Monolith" class="tcl-order-showcase-img" />
+
+      <h2 data-i18n="b11_h2">Power Everything</h2>
+      <p data-i18n="b11_copy">
+        立即在线锁定您的 PowerVault 配置，或预约 Aotearoa Volt 本地工程顾问获取 24 小时银行 0% 免息绿贷正式报价单。
+      </p>
+
+      <div class="tds-btn-group">
+        <a href="#lead-form" class="tds-btn tds-btn--primary" data-i18n="b11_btn1">立即订购 PowerVault</a>
+        <a href="poster.html?v=20261110_real_sunexus" class="tds-btn tds-btn--dark" data-i18n="b11_btn2">查看同款终端获客海报</a>
+      </div>
+
+      <!-- Minimalist Tesla Dark Order Form -->
+      <form class="tcl-lead-drawer" id="lead-form" onsubmit="submitOrderForm(event)">
+        <div style="font-size:1.1rem;font-weight:500;color:#fff;" data-i18n="form_title">预约免费 3D 屋顶方案 / 申请电工 Trade 批发价</div>
+        <div class="tcl-lead-grid">
+          <div class="tcl-input-group">
+            <label data-i18n="f_name">您的姓名 / Name *</label>
+            <input type="text" required placeholder="David Chen / 张先生" />
+          </div>
+          <div class="tcl-input-group">
+            <label data-i18n="f_phone">新西兰电话或微信 / Phone or WeChat *</label>
+            <input type="text" required placeholder="021 xxx xxxx / WeChat ID" />
+          </div>
+          <div class="tcl-input-group">
+            <label data-i18n="f_addr">安装地址或城市 / Address & City *</label>
+            <input type="text" required placeholder="Albany, Auckland / Christchurch" />
+          </div>
+          <div class="tcl-input-group">
+            <label data-i18n="f_pkg">意向配置 / Selected Configuration</label>
+            <select id="form-pkg-select">
+              <option value="16.9k">6.6kW HJT + PowerVault 16kWh 全包 ($16,900 · 0%绿贷)</option>
+              <option value="8.9k">存量光伏加装 PowerVault 16kWh ($8,900 全包 / $6,490 套件)</option>
+              <option value="4.19k">单买 SUN(P)-16KWH 314Ah 储能箱裸机 ($4,190 NZD)</option>
+              <option value="23.9k">庄园满配 10.5kW + 32kWh 双联储能 ($23,900 全包)</option>
+              <option value="tradie">持牌电工 / 安装商申请 Trade 阶梯批发价与派单合作</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="tds-btn tds-btn--primary" style="width:100%;margin-top:20px;height:42px;" data-i18n="f_submit">
+          提交预定 · 24 小时内发送 PDF 报价单与绿贷材料
+        </button>
+      </form>
+    </section>
+  </main>
+
+  <!-- TESLA MINIMALIST HORIZONTAL FOOTER -->
+  <footer class="tds-footer">
+    <ul class="tds-footer-links">
+      <li><a href="#">Aotearoa Volt © 2026</a></li>
+      <li><a href="#specs">AS/NZS 4777.2 & 5139 Certified</a></li>
+      <li><a href="#design-studio">Auckland & Christchurch Bonded Dispatch</a></li>
+      <li><a href="#design-studio">0800-865-869 · info@aotearoavolt.co.nz</a></li>
+      <li><a href="poster.html?v=20261109_v5">End-User Poster (PDF)</a></li>
+    </ul>
+  </footer>
+
+  <div class="toast-banner" id="toast-banner">已收到您的预定需求！工程顾问将在 24 小时内联系您。</div>
+
+  <script src="app.js?v=20261110_real_sunexus"></script>
+</body>
+</html>
