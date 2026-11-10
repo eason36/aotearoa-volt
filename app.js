@@ -64,10 +64,43 @@ const loanConfigs = [
   { nameZh: '全款无月供', nameEn: 'Cash Upfront', months: 0, rate: 0.0, rebate: 0 }
 ];
 
+function scrollStageIntoViewOnMobile(el) {
+  if (!el || window.innerWidth > 768) return;
+  const r = el.getBoundingClientRect();
+  if (r.top < 56) {
+    window.scrollBy({ top: r.top - 68, behavior: 'smooth' });
+  }
+}
+
+function toggleMobileMenu() {
+  const drawer = document.getElementById('tds-mobile-drawer');
+  const btn = document.getElementById('tds-mobile-menu-btn');
+  const header = document.querySelector('.tds-header');
+  if (!drawer || !btn) return;
+  if (header) {
+    drawer.style.paddingTop = Math.max(68, Math.round(header.getBoundingClientRect().bottom + 12)) + 'px';
+  }
+  const isOpen = drawer.classList.toggle('open');
+  btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  btn.textContent = isOpen
+    ? (currentLang === 'zh' ? '关闭 ✕' : 'Close ✕')
+    : (currentLang === 'zh' ? '菜单' : 'Menu');
+}
+
+function closeMobileMenu() {
+  const drawer = document.getElementById('tds-mobile-drawer');
+  const btn = document.getElementById('tds-mobile-menu-btn');
+  if (!drawer || !btn) return;
+  drawer.classList.remove('open');
+  btn.setAttribute('aria-expanded', 'false');
+  btn.textContent = currentLang === 'zh' ? '菜单' : 'Menu';
+}
+
 function switchCurveSlide(idx, btn) {
   const img = document.getElementById('fleet-curve-img');
   if (img && curveSlides[idx]) {
     img.src = curveSlides[idx];
+    scrollStageIntoViewOnMobile(img);
   }
   const parent = btn.parentElement;
   parent.querySelectorAll('.tcl-overbar-tab').forEach(b => b.classList.remove('active'));
@@ -78,6 +111,7 @@ function switchFlowSlide(idx, btn) {
   const img = document.getElementById('flow-stage-img');
   if (img && flowSlides[idx]) {
     img.src = flowSlides[idx];
+    scrollStageIntoViewOnMobile(img);
   }
   const parent = btn.parentElement;
   parent.querySelectorAll('.tcl-overbar-tab').forEach(b => b.classList.remove('active'));
@@ -88,6 +122,7 @@ function switchVerticalSlide(idx, btn) {
   const img = document.getElementById('v-showcase-img');
   if (img && verticalSlides[idx]) {
     img.src = verticalSlides[idx];
+    scrollStageIntoViewOnMobile(img);
   }
   const parent = btn.parentElement;
   parent.querySelectorAll('.tcl-v-tab').forEach(b => b.classList.remove('active'));
@@ -220,6 +255,7 @@ const i18nDict = {
     nav_4: '在线定制 ($6,000电费测算)',
     nav_5: '技术参数 (Specs)',
     nav_poster: '终端获客海报',
+    menu_btn: '菜单',
     hero_h1: 'PowerVault',
     hero_sub: '16.08 kWh 磷酸铁锂全屋储能 · 源头直供新西兰家庭',
     hero_sub2: '单机容量比 Powerwall 3 大 19% · 裸机 $4,190 NZD / 光储全包 $16,900 NZD',
@@ -295,6 +331,7 @@ const i18nDict = {
     nav_4: 'Design & Pricing',
     nav_5: 'Specs',
     nav_poster: 'Promotional Poster',
+    menu_btn: 'Menu',
     hero_h1: 'PowerVault',
     hero_sub: '16.08 kWh Home Battery Storage · Engineered for New Zealand',
     hero_sub2: '19% Larger Than Powerwall 3 · $4,190 NZD Unit Only / $16,900 Solar+Battery Turnkey',
@@ -412,8 +449,9 @@ function initHeroBluePlanet() {
 
       float cx = u_res.x * 0.5;
       float R  = max(u_res.x * 0.66, u_res.y * 0.86);
-      // Anchor the top horizon of the Night Earth right at 29.5% of hero height (just behind the CTA buttons, below the title/subtitle!)
-      float cy = R + u_res.y * 0.295;
+      // Anchor the top horizon of the Night Earth right behind the CTA buttons (0.355 on portrait mobile, 0.295 on desktop)
+      float horizonOffset = (u_res.x < u_res.y) ? 0.355 : 0.295;
+      float cy = R + u_res.y * horizonOffset;
 
       float nx = (frag.x - cx) / R;
       float ny = (frag.y - cy) / R;
