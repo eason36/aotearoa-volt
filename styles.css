@@ -1,15 +1,15 @@
 :root {
   --bg-black: #000000;
-  --bg-dark-elevated: #111317;
-  --bg-dark-card: #171A20;
+  --bg-dark-elevated: #0D1015;
+  --bg-dark-card: #13171F;
   --text-white: #FFFFFF;
-  --text-secondary: #D0D1D2;
-  --text-muted: #8E8E93;
+  --text-secondary: #D0D3D8;
+  --text-muted: #8E9299;
   --emerald: #10B981;
   --emerald-bright: #34D399;
   --emerald-dark: #059669;
-  --border-hairline: #22252A;
-  --border-subtle: rgba(255, 255, 255, 0.14);
+  --border-hairline: #22262E;
+  --border-subtle: rgba(255, 255, 255, 0.12);
   --font-sans: "Universal Sans", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   --font-display: "Outfit", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
@@ -45,17 +45,36 @@ a {
   text-decoration: none;
 }
 
+/* Modern Web Guidance: Improve Text Layout and Legibility */
+h1, h2, h3, h4, .tcl-h2, .tcl-hero-title, .tcl-bento-title {
+  text-wrap: balance;
+}
+
+p, li, .tcl-body-copy, .tcl-overbar-tab-copy, .tcl-bento-desc {
+  text-wrap: pretty;
+}
+
+.tcl-badge-num,
+.tcl-studio-cashflow,
+.tcl-kpi-cell strong,
+.tcl-opt-price strong,
+.tcl-slider-top strong,
+.tcl-eq-pill strong,
+.tcl-dock-price {
+  font-variant-numeric: tabular-nums;
+}
+
 /* =========================================================
    TOP TESLA ANNOUNCEMENT RIBBON (tds-banner)
    ========================================================= */
 .tds-banner {
-  background: linear-gradient(90deg, #061A12 0%, #0A2E20 50%, #061A12 100%);
-  border-bottom: 1px solid rgba(16, 185, 129, 0.25);
-  color: #FFFFFF;
+  background: linear-gradient(90deg, #04140E 0%, #09291D 50%, #04140E 100%);
+  border-bottom: 1px solid rgba(52, 211, 153, 0.22);
+  color: #EAECEF;
   font-size: 0.8125rem;
   font-weight: 400;
   text-align: center;
-  padding: 10px 20px;
+  padding: 9px 20px;
   letter-spacing: 0.01em;
   position: relative;
   z-index: 1001;
@@ -66,7 +85,7 @@ a {
   text-decoration: underline;
   text-underline-offset: 3px;
   margin-left: 8px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 /* =========================================================
@@ -79,10 +98,10 @@ a {
   right: 0;
   height: 56px;
   z-index: 1000;
-  background: rgba(0, 0, 0, 0.68);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   transition: background 0.25s ease;
 }
 
@@ -103,7 +122,7 @@ a {
   font-family: var(--font-display);
   font-size: 0.95rem;
   font-weight: 700;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   color: #FFFFFF;
   white-space: nowrap;
@@ -114,7 +133,7 @@ a {
   height: 18px;
   border-radius: 2px;
   background: var(--emerald-bright);
-  box-shadow: 0 0 10px var(--emerald);
+  box-shadow: 0 0 12px var(--emerald);
   display: inline-block;
 }
 
@@ -125,9 +144,9 @@ a {
 }
 
 .tds-nav-center a {
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   font-weight: 500;
-  color: #FFFFFF;
+  color: #EAECEF;
   padding: 6px 14px;
   border-radius: 4px;
   transition: background 0.2s ease, color 0.2s ease;
@@ -136,6 +155,7 @@ a {
 
 .tds-nav-center a:hover {
   background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
 }
 
 .tds-nav-center a.poster-link {
@@ -164,7 +184,7 @@ a {
   padding: 4px 10px;
   border-radius: 3px;
   cursor: pointer;
-  transition: all 0.18s ease;
+  transition: background 0.18s ease, color 0.18s ease;
 }
 
 .tds-lang-btn.active {
@@ -173,47 +193,53 @@ a {
 }
 
 /* =========================================================
-   TESLA BUTTONS (200px Rectangular 4px Radius)
+   TESLA BUTTONS
    ========================================================= */
 .tds-btn-group {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 14px;
   flex-wrap: wrap;
-  flex-wrap: balance;
 }
 
 .tds-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 200px;
-  height: 40px;
+  min-width: 196px;
+  height: 42px;
   padding: 0 24px;
   border-radius: 4px;
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.01em;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: transform 0.18s ease, background 0.2s ease, box-shadow 0.2s ease;
   border: none;
   text-align: center;
   white-space: nowrap;
 }
 
+.tds-btn:active {
+  transform: scale(0.98);
+}
+
 .tds-btn--primary {
   background: var(--emerald);
   color: #000000;
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.28);
 }
 
 .tds-btn--primary:hover {
   background: var(--emerald-bright);
+  box-shadow: 0 6px 26px rgba(52, 211, 153, 0.42);
 }
 
 .tds-btn--white {
-  background: #F4F4F4;
-  color: #171A20;
+  background: rgba(255, 255, 255, 0.92);
+  color: #111317;
+  backdrop-filter: blur(8px);
 }
 
 .tds-btn--white:hover {
@@ -221,7 +247,7 @@ a {
 }
 
 .tds-btn--dark {
-  background: #171A20;
+  background: rgba(23, 26, 32, 0.85);
   color: #FFFFFF;
   border: 1px solid rgba(255, 255, 255, 0.22);
 }
@@ -232,14 +258,14 @@ a {
 }
 
 /* =========================================================
-   BLOCK 0: TESLA 100VH HERO WITH ANIMATED 3D BLUE PLANET
+   BLOCK 0: TESLA 100VH HERO WITH ANIMATED 3D NIGHT EARTH
    ========================================================= */
 .tcl-hero {
   position: relative;
   width: 100%;
   height: calc(100vh - 56px);
   height: calc(100dvh - 56px);
-  min-height: 680px;
+  min-height: 660px;
   max-height: 1080px;
   background: #020409 url('assets/tesla/01_hero_blue_planet_bg.jpg?v=20261110_14k_native') center bottom / cover no-repeat;
   overflow: clip;
@@ -259,7 +285,6 @@ a {
   overflow: hidden;
 }
 
-/* CSS 3D Rotating Night Earth Dome (instant animation + fallback before/without WebGL) */
 .tcl-planet-dome {
   position: absolute;
   left: 50%;
@@ -289,7 +314,9 @@ a {
   background-repeat: repeat;
   border-radius: 50%;
   will-change: background-position;
-  animation: planetSurfaceDrift 95s linear infinite;
+  @media (prefers-reduced-motion: no-preference) {
+    animation: planetSurfaceDrift 95s linear infinite;
+  }
 }
 
 .tcl-planet-atmosphere {
@@ -307,12 +334,8 @@ a {
 }
 
 @keyframes planetSurfaceDrift {
-  0% {
-    background-position: 65% 28%;
-  }
-  100% {
-    background-position: 225% 28%;
-  }
+  0% { background-position: 65% 28%; }
+  100% { background-position: 225% 28%; }
 }
 
 .tcl-planet-canvas {
@@ -324,14 +347,13 @@ a {
   z-index: 2;
 }
 
-/* Foreground Freestanding PowerVault Monolith */
 .tcl-hero-monolith-wrap {
   position: absolute;
   left: 50%;
   bottom: 0;
   transform: translateX(-50%);
-  height: min(53vh, 520px);
-  min-height: 330px;
+  height: min(52vh, 510px);
+  min-height: 320px;
   z-index: 2;
   display: flex;
   align-items: flex-end;
@@ -347,7 +369,7 @@ a {
   height: 110%;
   transform: translate(-50%, -50%);
   background: radial-gradient(ellipse at center,
-    rgba(52, 211, 153, 0.24) 0%,
+    rgba(52, 211, 153, 0.25) 0%,
     rgba(45, 135, 235, 0.22) 38%,
     rgba(0, 0, 0, 0) 72%);
   filter: blur(18px);
@@ -368,46 +390,75 @@ a {
   position: relative;
   z-index: 3;
   text-align: center;
-  padding: 68px 24px 20px;
-  max-width: 860px;
+  padding: 52px 24px 16px;
+  max-width: 820px;
   margin: 0 auto;
   text-shadow: 0 2px 18px rgba(0, 0, 0, 0.75);
 }
 
+.tcl-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.14);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  color: var(--emerald-bright);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  backdrop-filter: blur(8px);
+}
+
+.tcl-hero-eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--emerald-bright);
+  box-shadow: 0 0 8px var(--emerald-bright);
+}
+
 .tcl-hero-title {
-  font-size: clamp(2.75rem, 4.5vw, 4rem);
-  line-height: 1.05;
-  font-weight: 500;
-  letter-spacing: -0.02em;
+  font-size: clamp(2.85rem, 4.8vw, 4.2rem);
+  line-height: 1.04;
+  font-weight: 600;
+  letter-spacing: -0.025em;
   color: #FFFFFF;
 }
 
 .tcl-hero-subtitle {
-  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  font-size: clamp(1.05rem, 1.35vw, 1.22rem);
   font-weight: 400;
-  color: #E2E4E6;
+  color: #ECEEF0;
   margin-top: 8px;
 }
 
 .tcl-hero-sub2 {
-  font-size: 0.875rem;
+  display: block;
+  font-size: 0.85rem;
   color: var(--emerald-bright);
   margin-top: 6px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
 .tcl-hero-cta {
-  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 /* =========================================================
-   BLOCK 1: TESLA 3-BADGE GROUP ON PURE BLACK
-   (paddingBlockStart: 168px, paddingBlockEnd: 168px, gap: 80px)
+   BLOCK 1: SLEEK 3-BADGE RIBBON ON PURE BLACK
    ========================================================= */
 .tcl-badge-section {
-  background: #000000;
-  padding: 148px 48px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(16, 185, 129, 0.09) 0%, rgba(0, 0, 0, 0) 70%), #000000;
+  padding: 88px 48px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   display: flex;
   justify-content: center;
 }
@@ -417,15 +468,15 @@ a {
   align-items: stretch;
   justify-content: center;
   gap: 0;
-  max-width: 1200px;
+  max-width: 1160px;
   width: 100%;
 }
 
 .tcl-badge-item {
   flex: 1;
   text-align: center;
-  padding: 8px 48px;
-  border-right: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 8px 40px;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -445,120 +496,33 @@ a {
 }
 
 .tcl-badge-num {
-  font-size: clamp(2.75rem, 4.4vw, 4rem);
-  line-height: 1.1;
-  font-weight: 500;
+  font-size: clamp(2.65rem, 4.2vw, 3.75rem);
+  line-height: 1.08;
+  font-weight: 600;
   letter-spacing: -0.03em;
   color: #FFFFFF;
 }
 
 .tcl-badge-num.emerald {
   color: var(--emerald-bright);
+  text-shadow: 0 0 28px rgba(52, 211, 153, 0.25);
 }
 
 .tcl-badge-unit {
-  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  font-size: clamp(1.25rem, 1.8vw, 1.6rem);
   font-weight: 500;
   color: #FFFFFF;
 }
 
 .tcl-badge-bottomline {
-  margin-top: 10px;
-  font-size: 1.05rem;
+  margin-top: 8px;
+  font-size: 0.95rem;
   font-weight: 400;
   color: var(--text-muted);
 }
 
 /* =========================================================
-   BLOCK 2 & BLOCK 4: TESLA 21:9 MEDIA CAROUSEL + OVERBAR FLUID TABS
-   ========================================================= */
-.tcl-carousel-section {
-  background: #000000;
-  padding: 40px 0 120px;
-}
-
-.tcl-carousel-media-wrap {
-  max-width: 1344px;
-  margin: 0 auto;
-  padding: 0 48px;
-}
-
-.tcl-carousel-stage {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 21 / 9;
-  background: #000000;
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.tcl-carousel-stage.aspect-16-9 {
-  aspect-ratio: 16 / 9;
-}
-
-.tcl-carousel-stage img,
-.tcl-carousel-stage video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Overbar Fluid 3-Col or 4-Col Navigation Tabs */
-.tcl-overbar-tabs {
-  max-width: 1120px;
-  margin: 36px auto 0;
-  padding: 0 48px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
-}
-
-.tcl-overbar-tabs.cols-3 {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.tcl-overbar-tab {
-  background: transparent;
-  border: none;
-  border-top: 3px solid #393C41;
-  padding-top: 18px;
-  text-align: left;
-  cursor: pointer;
-  color: #8E8E93;
-  transition: all 0.22s ease;
-}
-
-.tcl-overbar-tab:hover {
-  border-top-color: #6E7278;
-  color: #D0D1D2;
-}
-
-.tcl-overbar-tab.active {
-  border-top-color: var(--emerald-bright);
-  color: #FFFFFF;
-}
-
-.tcl-overbar-tab-title {
-  display: block;
-  font-size: 1.05rem;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: inherit;
-}
-
-.tcl-overbar-tab.active .tcl-overbar-tab-title {
-  color: #FFFFFF;
-}
-
-.tcl-overbar-tab-copy {
-  font-size: 0.875rem;
-  line-height: 1.55;
-  color: inherit;
-}
-
-/* =========================================================
-   BLOCK 3, 5, 8: FULL-BLEED PHOTO + BOTTOM SCRIM + HEADER GROUP
+   BLOCK 2: FULL-BLEED ARCHITECTURAL SHOWCASE + OVERLAY CHIPS
    ========================================================= */
 .tcl-text-on-media {
   position: relative;
@@ -569,9 +533,9 @@ a {
 .tcl-full-bleed-media {
   position: relative;
   width: 100%;
-  height: 82vh;
-  min-height: 560px;
-  max-height: 920px;
+  height: 76vh;
+  min-height: 500px;
+  max-height: 860px;
   overflow: hidden;
 }
 
@@ -581,273 +545,469 @@ a {
   object-fit: cover;
   object-position: center;
   display: block;
+  transition: opacity 0.35s ease, transform 0.6s ease;
 }
 
-/* Bottom gradient fade into pure #000000 exactly like Tesla */
 .tcl-full-bleed-media::after {
   content: "";
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 38%;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.78) 65%, #000000 100%);
+  height: 45%;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 62%, #000000 100%);
   pointer-events: none;
 }
 
+/* Glass Overlay Chips floating at the bottom of full-bleed photos */
+.tcl-media-overlay-bar {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  width: calc(100% - 32px);
+  max-width: 980px;
+}
+
+.tcl-glass-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(10, 14, 20, 0.76);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #F3F4F6;
+  white-space: nowrap;
+}
+
+.tcl-glass-chip strong {
+  color: var(--emerald-bright);
+  font-weight: 600;
+}
+
 .tcl-header-group-center {
-  max-width: 820px;
+  max-width: 720px;
   margin: 0 auto;
-  padding: 48px 24px 96px;
+  padding: 28px 24px 80px;
   text-align: center;
   background: #000000;
 }
 
-.tcl-header-group-left {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 48px 48px 112px;
-  background: #000000;
-}
-
-/* Tesla 40-60 and 30-70 Split Header Layout */
-.tcl-split-header {
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: 56px 48px 120px;
-  display: grid;
-  grid-template-columns: 4fr 6fr;
-  gap: 56px;
-  align-items: start;
-}
-
-.tcl-split-header.ratio-30-70 {
-  grid-template-columns: 3.5fr 6.5fr;
-}
-
 .tcl-h2 {
-  font-size: clamp(1.75rem, 2.5vw, 2.25rem);
-  line-height: 1.2;
-  font-weight: 500;
-  letter-spacing: -0.015em;
+  font-size: clamp(1.75rem, 2.5vw, 2.35rem);
+  line-height: 1.18;
+  font-weight: 600;
+  letter-spacing: -0.02em;
   color: #FFFFFF;
 }
 
 .tcl-body-copy {
-  font-size: 0.975rem;
-  line-height: 1.65;
-  color: #D0D1D2;
+  font-size: 1rem;
+  line-height: 1.62;
+  color: #C8CCD2;
   font-weight: 400;
-}
-
-.tcl-header-group-center .tcl-h2 {
-  margin-bottom: 16px;
-}
-
-.tcl-header-group-left .tcl-h2 {
-  margin-bottom: 16px;
-}
-
-.tcl-header-group-left .tcl-body-copy {
-  max-width: 780px;
-}
-
-.tds-inline-link {
-  color: #FFFFFF;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  transition: color 0.18s ease;
-}
-
-.tds-inline-link:hover {
-  color: var(--emerald-bright);
+  max-width: 60ch;
+  margin: 12px auto 0;
 }
 
 /* =========================================================
-   BLOCK 6: TESLA VERTICAL 3-SLIDE SPLIT SHOWCASE
-   (Capture More Solar / Avoid Peak Pricing / Earn by Selling)
+   BLOCK 3: AUTO-PLAYING 3D HOME ENERGY FLOW + PROGRESS TABS
    ========================================================= */
-.tcl-vertical-showcase {
+.tcl-carousel-section {
   background: #000000;
-  padding: 64px 48px 128px;
+  padding: 24px 0 96px;
 }
 
-.tcl-vertical-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 7fr 4.5fr;
-  gap: 56px;
-  align-items: center;
-}
-
-.tcl-vertical-media {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  border-radius: 4px;
-  overflow: hidden;
-  background: #0B0D10;
-}
-
-.tcl-vertical-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.tcl-vertical-tabs {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-}
-
-.tcl-v-tab {
-  background: transparent;
-  border: none;
-  border-left: 3px solid #2E3136;
-  padding: 6px 0 6px 24px;
-  text-align: left;
-  cursor: pointer;
-  color: #8E8E93;
-  transition: all 0.22s ease;
-}
-
-.tcl-v-tab:hover {
-  border-left-color: #6E7278;
-  color: #D0D1D2;
-}
-
-.tcl-v-tab.active {
-  border-left-color: var(--emerald-bright);
-  color: #FFFFFF;
-}
-
-.tcl-v-tab h3 {
-  font-size: 1.35rem;
-  font-weight: 500;
-  margin-bottom: 8px;
-  color: inherit;
-}
-
-.tcl-v-tab p {
-  font-size: 0.925rem;
-  line-height: 1.6;
-  color: inherit;
-}
-
-/* =========================================================
-   BLOCK 7 & BLOCK 9: CONSTRAINED GALLERY MEDIA
-   ========================================================= */
-.tcl-gallery-section {
-  background: #000000;
-  padding-top: 24px;
-}
-
-.tcl-gallery-media {
-  max-width: 1344px;
-  margin: 0 auto;
+.tcl-section-top-bar {
+  max-width: 1180px;
+  margin: 0 auto 24px;
   padding: 0 48px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
 }
 
-.tcl-gallery-media img {
-  width: 100%;
-  height: auto;
-  border-radius: 4px;
-  display: block;
-}
-
-/* =========================================================
-   TESLA DESIGN STUDIO CONFIGURATOR (/powerwall/design Dark UI)
-   ========================================================= */
-.tcl-design-studio {
-  background: #000000;
-  border-top: 1px solid #1B1E23;
-  border-bottom: 1px solid #1B1E23;
-  padding: 112px 48px;
-}
-
-.tcl-studio-container {
-  max-width: 1280px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 6.5fr 5.5fr;
-  gap: 56px;
-  align-items: start;
-}
-
-.tcl-studio-preview {
-  position: sticky;
-  top: 84px;
-  background: #0D1014;
-  border: 1px solid #22262C;
-  border-radius: 8px;
-  padding: 36px;
-}
-
-.tcl-studio-eyebrow {
+.tcl-eyebrow-tag {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--emerald-bright);
-  margin-bottom: 10px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.tcl-pause-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #D0D3D8;
+  font-size: 0.76rem;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease;
+  white-space: nowrap;
+}
+
+.tcl-pause-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #FFFFFF;
+}
+
+.tcl-carousel-media-wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.tcl-carousel-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #070A0F;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65);
+}
+
+.tcl-carousel-stage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.28s ease;
+}
+
+.tcl-overbar-tabs {
+  max-width: 1180px;
+  margin: 28px auto 0;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.tcl-overbar-tab {
+  position: relative;
+  background: transparent;
+  border: none;
+  border-top: 3px solid #2A2E36;
+  padding-top: 16px;
+  text-align: left;
+  cursor: pointer;
+  color: #8E9299;
+  transition: color 0.22s ease, border-color 0.22s ease;
+}
+
+/* Animated Progress Bar on Active Tab */
+.tcl-overbar-tab::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: var(--emerald-bright);
+  box-shadow: 0 0 10px var(--emerald);
+}
+
+.tcl-overbar-tab.active {
+  color: #FFFFFF;
+}
+
+.tcl-overbar-tab.active::before {
+  width: 100%;
+  @media (prefers-reduced-motion: no-preference) {
+    transition: width 6s linear;
+  }
+}
+
+.tcl-overbar-tabs.paused .tcl-overbar-tab.active::before {
+  transition: none;
+  width: 100%;
+}
+
+.tcl-overbar-tab:hover {
+  color: #D8DCE0;
+}
+
+.tcl-overbar-tab-title {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: inherit;
+}
+
+.tcl-overbar-tab.active .tcl-overbar-tab-title {
+  color: #FFFFFF;
+}
+
+.tcl-overbar-tab-copy {
+  font-size: 0.875rem;
+  line-height: 1.52;
+  color: inherit;
+}
+
+/* =========================================================
+   BLOCK 4: APPLE / TESLA 4-CARD BENTO GRID (#why-powervault)
+   ========================================================= */
+.tcl-bento-section {
+  background: #000000;
+  padding: 36px 48px 104px;
+}
+
+.tcl-bento-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.tcl-bento-header {
+  max-width: 680px;
+  margin-bottom: 36px;
+}
+
+.tcl-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+}
+
+.tcl-bento-card {
+  position: relative;
+  background: linear-gradient(180deg, #11151C 0%, #0B0E13 100%);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.tcl-bento-card:hover {
+  border-color: rgba(52, 211, 153, 0.4);
+  transform: translateY(-2px);
+}
+
+.tcl-bento-card.span-7 {
+  grid-column: span 7;
+}
+
+.tcl-bento-card.span-5 {
+  grid-column: span 5;
+}
+
+.tcl-bento-media {
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+  background: #07090C;
+  position: relative;
+}
+
+.tcl-bento-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.tcl-bento-card:hover .tcl-bento-media img {
+  transform: scale(1.03);
+}
+
+.tcl-bento-body {
+  padding: 24px 26px 26px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tcl-bento-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--emerald-bright);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+
+.tcl-bento-title {
+  font-size: 1.28rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  line-height: 1.25;
+  margin-bottom: 8px;
+}
+
+.tcl-bento-desc {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #A6ABB4;
+}
+
+/* =========================================================
+   BLOCK 5: INTERACTIVE STORM WATCH & EXTREME WEATHER STAGE
+   ========================================================= */
+.tcl-weather-switcher {
+  display: inline-flex;
+  background: rgba(15, 19, 26, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  padding: 4px;
+  margin-bottom: 18px;
+}
+
+.tcl-weather-btn {
+  border: none;
+  background: transparent;
+  color: #A6ABB4;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 7px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.tcl-weather-btn.active {
+  background: var(--emerald);
+  color: #000000;
+}
+
+/* =========================================================
+   BLOCK 6: TESLA DESIGN STUDIO CONFIGURATOR (#design-studio)
+   ========================================================= */
+.tcl-design-studio {
+  background: radial-gradient(ellipse at 25% 15%, rgba(16, 185, 129, 0.07) 0%, rgba(0, 0, 0, 0) 60%), #000000;
+  border-top: 1px solid #1B1F27;
+  border-bottom: 1px solid #1B1F27;
+  padding: 96px 48px;
+}
+
+.tcl-studio-container {
+  max-width: 1260px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 6.2fr 5.8fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.tcl-studio-preview {
+  position: sticky;
+  top: 78px;
+  background: linear-gradient(180deg, #10141B 0%, #0B0E13 100%);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 10px;
+  padding: 32px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+}
+
+.tcl-studio-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--emerald-bright);
+  margin-bottom: 8px;
 }
 
 .tcl-studio-cashflow {
-  font-size: clamp(2.5rem, 3.8vw, 3.4rem);
-  font-weight: 600;
+  font-size: clamp(2.4rem, 3.6vw, 3.25rem);
+  font-weight: 700;
   letter-spacing: -0.03em;
   color: var(--emerald-bright);
-  line-height: 1.08;
+  line-height: 1.06;
 }
 
-.tcl-studio-sub {
-  font-size: 0.925rem;
-  color: #A0A4A8;
-  margin-top: 8px;
-  margin-bottom: 28px;
+/* Visual Cashflow Equation Pill */
+.tcl-eq-pill {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 22px;
+  padding: 8px 14px;
+  background: rgba(16, 185, 129, 0.09);
+  border: 1px solid rgba(52, 211, 153, 0.28);
+  border-radius: 6px;
+  font-size: 0.82rem;
+  color: #D8DCE0;
+}
+
+.tcl-eq-pill strong {
+  color: #FFFFFF;
+  font-family: var(--font-mono);
+}
+
+.tcl-eq-pill .emerald {
+  color: var(--emerald-bright);
+  font-weight: 700;
 }
 
 /* Real Hardware Product Switcher inside Studio */
 .tcl-hw-showcase {
   display: grid;
-  grid-template-columns: 110px 1fr;
-  gap: 20px;
+  grid-template-columns: 100px 1fr;
+  gap: 18px;
   align-items: center;
-  background: #14181E;
-  border: 1px solid #262B33;
-  border-radius: 6px;
-  padding: 16px 20px;
-  margin-bottom: 28px;
+  background: #141922;
+  border: 1px solid #262C36;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 22px;
 }
 
 .tcl-hw-showcase img {
-  width: 100px;
-  height: 106px;
+  width: 92px;
+  height: 98px;
   object-fit: contain;
   background: #FFFFFF;
-  border-radius: 4px;
+  border-radius: 6px;
   padding: 6px;
 }
 
 .tcl-hw-tabs {
   display: flex;
-  gap: 8px;
-  margin-top: 10px;
+  gap: 6px;
+  margin-top: 8px;
   flex-wrap: wrap;
 }
 
 .tcl-hw-pill {
-  background: #1F242D;
-  border: 1px solid #323842;
-  color: #D0D1D2;
-  font-size: 0.75rem;
+  background: #1F2530;
+  border: 1px solid #323946;
+  color: #D0D3D8;
+  font-size: 0.72rem;
   font-weight: 600;
-  padding: 5px 11px;
+  padding: 4px 10px;
   border-radius: 4px;
   cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease;
 }
 
 .tcl-hw-pill.active {
@@ -859,21 +1019,21 @@ a {
 .tcl-bars-box {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  margin-bottom: 28px;
+  gap: 12px;
+  margin-bottom: 22px;
 }
 
 .tcl-bar-label {
   display: flex;
   justify-content: space-between;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   color: #B8BABC;
-  margin-bottom: 6px;
+  margin-bottom: 5px;
 }
 
 .tcl-bar-track {
   height: 8px;
-  background: #1E2229;
+  background: #1E232B;
   border-radius: 4px;
   overflow: hidden;
 }
@@ -881,7 +1041,7 @@ a {
 .tcl-bar-fill-old {
   height: 100%;
   width: 100%;
-  background: #525760;
+  background: #525862;
 }
 
 .tcl-bar-fill-new {
@@ -894,21 +1054,21 @@ a {
 .tcl-kpi-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  border-top: 1px solid #22262C;
-  padding-top: 24px;
+  gap: 14px;
+  border-top: 1px solid #222730;
+  padding-top: 20px;
 }
 
 .tcl-kpi-cell span {
   display: block;
-  font-size: 0.78rem;
-  color: #8E8E93;
-  margin-bottom: 4px;
+  font-size: 0.76rem;
+  color: #8E9299;
+  margin-bottom: 3px;
 }
 
 .tcl-kpi-cell strong {
   font-family: var(--font-mono);
-  font-size: 1.35rem;
+  font-size: 1.28rem;
   font-weight: 600;
   color: #FFFFFF;
 }
@@ -921,37 +1081,37 @@ a {
 .tcl-studio-controls {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
 }
 
 .tcl-studio-heading {
-  font-size: 1.85rem;
-  font-weight: 500;
+  font-size: 1.75rem;
+  font-weight: 600;
   color: #FFFFFF;
 }
 
 .tcl-control-box {
-  background: #111419;
-  border: 1px solid #252930;
-  border-radius: 6px;
-  padding: 20px 24px;
+  background: #11151C;
+  border: 1px solid #252A34;
+  border-radius: 8px;
+  padding: 18px 22px;
 }
 
 .tcl-slider-top {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .tcl-slider-top span {
-  font-size: 0.9rem;
-  color: #D0D1D2;
+  font-size: 0.88rem;
+  color: #D0D3D8;
 }
 
 .tcl-slider-top strong {
   font-family: var(--font-mono);
-  font-size: 1.15rem;
+  font-size: 1.12rem;
   color: var(--emerald-bright);
 }
 
@@ -964,27 +1124,27 @@ input[type="range"].tcl-range {
 .tcl-range-marks {
   display: flex;
   justify-content: space-between;
-  font-size: 0.75rem;
-  color: #787C82;
-  margin-top: 8px;
+  font-size: 0.72rem;
+  color: #787D85;
+  margin-top: 6px;
 }
 
 .tcl-option-stack {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .tcl-option-card {
-  background: #111419;
-  border: 1px solid #2A2E37;
-  border-radius: 4px;
-  padding: 18px 20px;
+  background: #11151C;
+  border: 1px solid #282D37;
+  border-radius: 6px;
+  padding: 15px 18px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  transition: all 0.18s ease;
+  transition: border-color 0.18s ease, background 0.18s ease;
 }
 
 .tcl-option-card:hover {
@@ -993,47 +1153,47 @@ input[type="range"].tcl-range {
 
 .tcl-option-card.active {
   border: 2px solid var(--emerald-bright);
-  background: rgba(16, 185, 129, 0.07);
-  padding: 17px 19px;
+  background: rgba(16, 185, 129, 0.08);
+  padding: 14px 17px;
 }
 
 .tcl-opt-badge {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   color: var(--emerald-bright);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   display: block;
-  margin-bottom: 3px;
+  margin-bottom: 2px;
 }
 
 .tcl-opt-title {
-  font-size: 1rem;
+  font-size: 0.96rem;
   font-weight: 600;
   color: #FFFFFF;
 }
 
 .tcl-opt-desc {
-  font-size: 0.8rem;
-  color: #8E8E93;
-  margin-top: 3px;
+  font-size: 0.78rem;
+  color: #8E9299;
+  margin-top: 2px;
 }
 
 .tcl-opt-price {
   text-align: right;
   white-space: nowrap;
-  margin-left: 16px;
+  margin-left: 14px;
 }
 
 .tcl-opt-price strong {
   display: block;
   font-family: var(--font-mono);
-  font-size: 1.15rem;
+  font-size: 1.12rem;
   color: #FFFFFF;
 }
 
 .tcl-opt-price span {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: var(--emerald-bright);
 }
 
@@ -1044,14 +1204,14 @@ input[type="range"].tcl-range {
 }
 
 .tcl-loan-btn {
-  background: #111419;
-  border: 1px solid #2A2E37;
-  border-radius: 4px;
-  padding: 12px 14px;
+  background: #11151C;
+  border: 1px solid #282D37;
+  border-radius: 6px;
+  padding: 11px 14px;
   text-align: left;
   cursor: pointer;
-  color: #D0D1D2;
-  transition: all 0.18s ease;
+  color: #D0D3D8;
+  transition: border-color 0.18s ease, background 0.18s ease;
 }
 
 .tcl-loan-btn.active {
@@ -1062,55 +1222,55 @@ input[type="range"].tcl-range {
 
 .tcl-loan-btn strong {
   display: block;
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   color: #FFFFFF;
 }
 
 .tcl-loan-btn span {
-  font-size: 0.75rem;
-  color: #8E8E93;
+  font-size: 0.72rem;
+  color: #8E9299;
 }
 
 /* =========================================================
-   BLOCK 10: TESLA SPECS TABLE (dx-specs-table on #000000)
+   BLOCK 7: TESLA SPECS TABLE (#specs)
    ========================================================= */
 .tcl-specs-section {
   background: #000000;
-  padding: 120px 48px;
+  padding: 96px 48px;
 }
 
 .tcl-specs-inner {
-  max-width: 1120px;
+  max-width: 1140px;
   margin: 0 auto;
 }
 
 .tcl-specs-header {
-  font-size: clamp(1.85rem, 2.6vw, 2.35rem);
-  font-weight: 500;
+  font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+  font-weight: 600;
   color: #FFFFFF;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 .tcl-specs-tabs {
   display: flex;
-  gap: 12px;
-  border-bottom: 1px solid #22252A;
-  padding-bottom: 20px;
-  margin-bottom: 48px;
+  gap: 10px;
+  border-bottom: 1px solid #22262E;
+  padding-bottom: 18px;
+  margin-bottom: 36px;
   flex-wrap: wrap;
 }
 
 .tcl-spec-tab {
   background: transparent;
   border: 1px solid #393C41;
-  color: #D0D1D2;
-  height: 40px;
-  padding: 0 24px;
+  color: #D0D3D8;
+  height: 38px;
+  padding: 0 20px;
   border-radius: 4px;
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.18s ease;
+  transition: background 0.18s ease, color 0.18s ease;
 }
 
 .tcl-spec-tab.active {
@@ -1121,38 +1281,37 @@ input[type="range"].tcl-range {
 }
 
 .tcl-spec-category {
-  margin-bottom: 56px;
+  margin-bottom: 40px;
 }
 
 .tcl-spec-cat-title {
-  font-size: 1.15rem;
-  font-weight: 500;
+  font-size: 1.05rem;
+  font-weight: 600;
   color: #FFFFFF;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .tcl-spec-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
+  gap: 28px;
 }
 
 .tcl-spec-cell {
-  border-top: 1px solid #2A2D34;
-  padding-top: 16px;
+  border-top: 1px solid #262A32;
+  padding-top: 14px;
 }
 
 .tcl-spec-label {
-  font-size: 0.85rem;
-  color: #8E8E93;
-  margin-bottom: 6px;
+  font-size: 0.8rem;
+  color: #8E9299;
+  margin-bottom: 4px;
 }
 
 .tcl-spec-val {
-  font-size: 0.975rem;
-  line-height: 1.55;
+  font-size: 0.92rem;
+  line-height: 1.5;
   color: #FFFFFF;
-  font-weight: 400;
 }
 
 .tcl-spec-val strong {
@@ -1161,73 +1320,72 @@ input[type="range"].tcl-range {
 }
 
 .tcl-specs-footnote {
-  font-size: 0.78rem;
-  color: #787C82;
-  margin-top: 24px;
+  font-size: 0.76rem;
+  color: #787D85;
+  margin-top: 16px;
 }
 
 /* =========================================================
-   BLOCK 11: TESLA ORDER SHOWCASE (Power Everything on #000000)
+   BLOCK 8: MINIMALIST ORDER SHOWCASE (#order-now)
    ========================================================= */
 .tcl-order-showcase {
   background: #000000;
-  padding: 64px 24px 120px;
+  padding: 48px 24px 104px;
   text-align: center;
 }
 
 .tcl-order-showcase-img {
-  max-width: 780px;
+  max-width: 680px;
   width: 100%;
   height: auto;
-  margin: 0 auto 24px;
+  margin: 0 auto 20px;
   display: block;
 }
 
 .tcl-order-showcase h2 {
-  font-size: clamp(2rem, 3.2vw, 2.75rem);
-  font-weight: 500;
+  font-size: clamp(1.9rem, 3vw, 2.5rem);
+  font-weight: 600;
   color: #FFFFFF;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .tcl-order-showcase p {
-  font-size: 1rem;
-  color: #D0D1D2;
-  max-width: 540px;
-  margin: 0 auto 28px;
+  font-size: 0.96rem;
+  color: #C8CCD2;
+  max-width: 500px;
+  margin: 0 auto 24px;
 }
 
-/* Modal / Inline Order Drawer */
 .tcl-lead-drawer {
-  max-width: 720px;
-  margin: 56px auto 0;
-  background: #0E1116;
-  border: 1px solid #242932;
-  border-radius: 6px;
-  padding: 32px;
+  max-width: 680px;
+  margin: 40px auto 0;
+  background: #0E1218;
+  border: 1px solid #242A34;
+  border-radius: 8px;
+  padding: 28px;
   text-align: left;
 }
 
 .tcl-lead-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  margin-top: 18px;
+  gap: 14px;
+  margin-top: 16px;
 }
 
 .tcl-input-group label {
   display: block;
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   color: #9CA0A6;
-  margin-bottom: 6px;
+  margin-bottom: 5px;
 }
 
 .tcl-input-group input,
 .tcl-input-group select {
   width: 100%;
   height: 42px;
-  background: #171B22;
-  border: 1px solid #2E3440;
+  background: #161B24;
+  border: 1px solid #2E3542;
   border-radius: 4px;
   padding: 0 14px;
   color: #FFFFFF;
@@ -1241,11 +1399,105 @@ input[type="range"].tcl-range {
 }
 
 /* =========================================================
+   FLOATING QUICK-ORDER DOCK (.tcl-floating-dock)
+   ========================================================= */
+.tcl-floating-dock {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translate(-50%, 140%);
+  opacity: 0;
+  z-index: 990;
+  background: rgba(12, 16, 22, 0.88);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 999px;
+  padding: 8px 10px 8px 22px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75), 0 0 20px rgba(16, 185, 129, 0.15);
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.28s ease;
+  pointer-events: none;
+}
+
+.tcl-floating-dock.visible {
+  transform: translate(-50%, 0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.tcl-dock-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+  font-size: 0.84rem;
+}
+
+.tcl-dock-title {
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.tcl-dock-price {
+  color: var(--emerald-bright);
+  font-weight: 600;
+}
+
+.tcl-dock-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: var(--emerald);
+  color: #000000;
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: background 0.18s ease;
+}
+
+.tcl-dock-btn:hover {
+  background: var(--emerald-bright);
+}
+
+/* =========================================================
+   SCROLL-ENTRY REVEAL ANIMATION (Modern Web Guidance Compliant)
+   ========================================================= */
+@media (prefers-reduced-motion: no-preference) {
+  @supports ((animation-timeline: view()) and (animation-range: entry)) {
+    @keyframes tclFadeUp {
+      from {
+        opacity: 0.15;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .tcl-bento-card,
+    .tcl-header-group-center,
+    .tcl-studio-preview,
+    .tcl-studio-controls {
+      animation: tclFadeUp auto ease-out backwards;
+      animation-timeline: view();
+      animation-range: entry 5% cover 22%;
+    }
+  }
+}
+
+/* =========================================================
    TESLA MINIMALIST HORIZONTAL FOOTER (tds-footer)
    ========================================================= */
 .tds-footer {
   background: #000000;
-  padding: 32px 24px 48px;
+  padding: 32px 24px 88px;
   border-top: 1px solid #16181C;
   text-align: center;
 }
@@ -1256,10 +1508,9 @@ input[type="range"].tcl-range {
   align-items: center;
   gap: 24px;
   flex-wrap: wrap;
-  flex-wrap: balance;
   list-style: none;
   font-size: 0.78rem;
-  color: #8E8E93;
+  color: #8E9299;
 }
 
 .tds-footer-links a:hover {
@@ -1287,7 +1538,7 @@ input[type="range"].tcl-range {
 .tcl-option-card > div,
 .tcl-spec-cell,
 .tcl-badge-item,
-.tcl-v-tab,
+.tcl-bento-card,
 .tcl-overbar-tab {
   min-inline-size: 0;
   min-width: 0;
@@ -1375,24 +1626,24 @@ input[type="range"].tcl-range {
   }
   .tcl-badge-group {
     flex-direction: column;
-    gap: 36px;
+    gap: 28px;
   }
   .tcl-badge-item {
     border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
-    padding: 0 16px 28px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 0 16px 24px;
   }
   .tcl-badge-item:last-child {
     border-bottom: none;
     padding-bottom: 0;
   }
   .tcl-overbar-tabs,
-  .tcl-overbar-tabs.cols-3,
-  .tcl-split-header,
-  .tcl-split-header.ratio-30-70,
-  .tcl-vertical-inner,
   .tcl-studio-container {
     grid-template-columns: 1fr;
+  }
+  .tcl-bento-card.span-7,
+  .tcl-bento-card.span-5 {
+    grid-column: span 12;
   }
   .tcl-spec-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1405,9 +1656,9 @@ input[type="range"].tcl-range {
 
 @media (max-width: 680px) {
   .tds-banner {
-    font-size: 0.75rem;
+    font-size: 0.74rem;
     padding: 8px 12px;
-    line-height: 1.45;
+    line-height: 1.42;
   }
   .tds-banner a {
     display: inline-block;
@@ -1429,46 +1680,51 @@ input[type="range"].tcl-range {
     font-size: 0.72rem;
   }
 
-  /* Mobile Hero: Balanced Top Copy + CTA Stack + Bottom SUNEXUS Unit */
+  /* Mobile Hero */
   .tcl-hero {
-    min-height: 600px;
-    max-height: 900px;
+    min-height: 590px;
+    max-height: 880px;
     height: calc(100vh - 56px);
     height: calc(100dvh - 56px);
   }
   .tcl-hero-top {
-    padding: 22px 16px 12px;
+    padding: 18px 16px 10px;
     width: 100%;
   }
+  .tcl-hero-eyebrow {
+    font-size: 0.65rem;
+    padding: 4px 10px;
+    margin-bottom: 8px;
+  }
   .tcl-hero-title {
-    font-size: clamp(2.15rem, 1.4rem + 3.5vw, 3.2rem);
+    font-size: clamp(2.15rem, 1.4rem + 3.5vw, 3.1rem);
   }
   .tcl-hero-subtitle {
-    font-size: 0.94rem;
-    line-height: 1.42;
-    margin-top: 6px;
-  }
-  .tcl-hero-sub2 {
-    font-size: 0.78rem;
-    line-height: 1.42;
+    font-size: 0.92rem;
+    line-height: 1.4;
     margin-top: 5px;
   }
+  .tcl-hero-sub2 {
+    font-size: 0.76rem;
+    line-height: 1.4;
+    margin-top: 4px;
+  }
   .tcl-hero-cta {
-    margin-top: 14px;
-    gap: 10px;
+    margin-top: 12px;
+    gap: 8px;
     width: 100%;
     flex-direction: column;
     align-items: center;
   }
   .tcl-hero-cta .tds-btn {
-    width: min(100%, 310px);
+    width: min(100%, 300px);
     min-width: 0;
-    height: 40px;
-    font-size: 0.85rem;
+    height: 38px;
+    font-size: 0.84rem;
   }
   .tcl-hero-monolith-wrap {
-    height: min(37dvh, 285px);
-    min-height: 195px;
+    height: min(36dvh, 275px);
+    min-height: 190px;
     max-width: 88vw;
   }
   .tcl-planet-dome {
@@ -1479,177 +1735,158 @@ input[type="range"].tcl-range {
 
   /* Section Spacing & Padding on Mobile */
   .tcl-badge-section {
-    padding: 64px 20px;
+    padding: 48px 20px;
   }
   .tcl-badge-num {
-    font-size: clamp(2.35rem, 1.6rem + 3.5vw, 3.2rem);
+    font-size: clamp(2.25rem, 1.5rem + 3.5vw, 3rem);
   }
   .tcl-badge-bottomline {
-    font-size: 0.92rem;
+    font-size: 0.88rem;
+  }
+
+  .tcl-full-bleed-media {
+    height: auto;
+    min-height: 250px;
+    max-height: 48dvh;
+    aspect-ratio: 16 / 11;
+  }
+  .tcl-media-overlay-bar {
+    bottom: 12px;
+    gap: 6px;
+  }
+  .tcl-glass-chip {
+    font-size: 0.72rem;
+    padding: 5px 10px;
+  }
+  .tcl-header-group-center {
+    padding: 20px 20px 56px;
+  }
+  .tcl-h2 {
+    font-size: clamp(1.4rem, 1.1rem + 2vw, 1.9rem);
+  }
+  .tcl-body-copy {
+    font-size: 0.88rem;
+    line-height: 1.56;
   }
 
   .tcl-carousel-section {
-    padding: 20px 0 64px;
+    padding: 16px 0 56px;
   }
-  .tcl-carousel-media-wrap,
-  .tcl-gallery-media {
+  .tcl-section-top-bar {
+    padding: 0 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .tcl-carousel-media-wrap {
     padding: 0 16px;
   }
   .tcl-carousel-stage {
     aspect-ratio: 16 / 10;
   }
-  #fleet-curve-img {
-    object-fit: contain;
-    background: #070A0E;
-  }
-  .tcl-overbar-tabs,
-  .tcl-overbar-tabs.cols-3 {
+  .tcl-overbar-tabs {
     padding: 0 16px;
-    margin-top: 20px;
-    gap: 14px;
+    margin-top: 16px;
+    gap: 10px;
   }
   .tcl-overbar-tab {
     background: #0B0E13;
     border: 1px solid #1F242D;
     border-top: 3px solid #393C41;
     border-radius: 6px;
-    padding: 14px 16px;
+    padding: 12px 14px;
   }
   .tcl-overbar-tab.active {
     border-color: rgba(52, 211, 153, 0.35);
-    border-top: 3px solid var(--emerald-bright);
     background: rgba(16, 185, 129, 0.08);
   }
   .tcl-overbar-tab-title {
-    font-size: 0.96rem;
-    margin-bottom: 5px;
+    font-size: 0.94rem;
+    margin-bottom: 4px;
   }
   .tcl-overbar-tab-copy {
+    font-size: 0.8rem;
+  }
+
+  /* Bento Grid on Mobile */
+  .tcl-bento-section {
+    padding: 24px 16px 64px;
+  }
+  .tcl-bento-media {
+    height: 185px;
+  }
+  .tcl-bento-body {
+    padding: 18px;
+  }
+  .tcl-bento-title {
+    font-size: 1.12rem;
+  }
+  .tcl-bento-desc {
     font-size: 0.82rem;
-    line-height: 1.5;
-  }
-
-  /* Full-bleed house & storm photos on mobile: show complete house & battery */
-  .tcl-full-bleed-media {
-    height: auto;
-    min-height: 240px;
-    max-height: 48dvh;
-    aspect-ratio: 16 / 11;
-  }
-  .tcl-header-group-center,
-  .tcl-header-group-left,
-  .tcl-split-header,
-  .tcl-split-header.ratio-30-70 {
-    padding: 32px 20px 64px;
-    gap: 14px;
-    text-align: left;
-  }
-  .tcl-h2 {
-    font-size: clamp(1.45rem, 1.1rem + 2vw, 2rem);
-    line-height: 1.25;
-  }
-  .tcl-body-copy {
-    font-size: 0.9rem;
-    line-height: 1.6;
-  }
-
-  /* Vertical 3-Slide Showcase */
-  .tcl-vertical-showcase {
-    padding: 32px 16px 64px;
-  }
-  .tcl-vertical-inner {
-    gap: 20px;
-  }
-  .tcl-vertical-tabs {
-    gap: 14px;
-  }
-  .tcl-v-tab {
-    background: #0B0E13;
-    border: 1px solid #1F242D;
-    border-left: 3px solid #2E3136;
-    border-radius: 0 6px 6px 0;
-    padding: 12px 14px 12px 16px;
-  }
-  .tcl-v-tab.active {
-    border-color: rgba(52, 211, 153, 0.35);
-    border-left: 3px solid var(--emerald-bright);
-    background: rgba(16, 185, 129, 0.08);
-  }
-  .tcl-v-tab h3 {
-    font-size: 1.05rem;
-    margin-bottom: 5px;
-  }
-  .tcl-v-tab p {
-    font-size: 0.84rem;
-    line-height: 1.5;
   }
 
   /* Design Studio Configurator on Mobile */
   .tcl-design-studio {
-    padding: 56px 16px;
+    padding: 48px 16px;
   }
   .tcl-studio-container {
-    gap: 32px;
+    gap: 28px;
   }
   .tcl-studio-preview {
     padding: 20px 16px;
   }
   .tcl-studio-cashflow {
-    font-size: clamp(1.9rem, 1.3rem + 3vw, 2.8rem);
+    font-size: clamp(1.9rem, 1.3rem + 3vw, 2.6rem);
   }
-  .tcl-studio-sub {
-    font-size: 0.84rem;
-    margin-bottom: 18px;
+  .tcl-eq-pill {
+    font-size: 0.74rem;
+    padding: 6px 10px;
+    margin: 10px 0 16px;
   }
   .tcl-hw-showcase {
-    grid-template-columns: 72px minmax(0, 1fr);
+    grid-template-columns: 68px minmax(0, 1fr);
     gap: 12px;
     padding: 12px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
   .tcl-hw-showcase img {
-    width: 72px;
-    height: 80px;
+    width: 68px;
+    height: 76px;
   }
   .tcl-hw-pill {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     padding: 4px 8px;
   }
   .tcl-bar-label {
     flex-wrap: wrap;
     gap: 4px;
-    font-size: 0.76rem;
+    font-size: 0.75rem;
   }
   .tcl-kpi-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px 12px;
-    padding-top: 18px;
+    gap: 12px;
+    padding-top: 16px;
   }
   .tcl-kpi-cell strong {
-    font-size: 1.1rem;
+    font-size: 0.98rem;
+    white-space: nowrap;
   }
   .tcl-studio-heading {
-    font-size: 1.45rem;
+    font-size: 1.4rem;
   }
   .tcl-control-box {
-    padding: 16px;
+    padding: 14px 16px;
   }
   .tcl-slider-top {
     flex-direction: column;
     align-items: flex-start;
     gap: 4px;
   }
-  .tcl-slider-top strong {
-    font-size: 1.05rem;
-  }
-  .tcl-range-marks {
-    font-size: 0.66rem;
-  }
   .tcl-option-card,
   .tcl-option-card.active {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: 8px;
     padding: 14px 16px;
   }
   .tcl-opt-price {
@@ -1670,7 +1907,7 @@ input[type="range"].tcl-range {
     padding: 10px;
   }
   .tcl-loan-btn strong {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
   }
   .tcl-loan-btn span {
     font-size: 0.68rem;
@@ -1678,34 +1915,31 @@ input[type="range"].tcl-range {
 
   /* Specs Table on Mobile */
   .tcl-specs-section {
-    padding: 56px 16px;
+    padding: 48px 16px;
   }
   .tcl-specs-tabs {
     display: grid;
     grid-template-columns: 1fr;
     gap: 8px;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
   }
   .tcl-spec-tab {
     width: 100%;
     text-align: left;
-    padding: 0 16px;
-    font-size: 0.82rem;
-  }
-  .tcl-spec-category {
-    margin-bottom: 36px;
+    padding: 0 14px;
+    font-size: 0.8rem;
   }
   .tcl-spec-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px 14px;
+    gap: 16px 12px;
   }
   .tcl-spec-val {
-    font-size: 0.86rem;
+    font-size: 0.84rem;
   }
 
   /* Order Showcase & Form on Mobile */
   .tcl-order-showcase {
-    padding: 48px 16px 72px;
+    padding: 40px 16px 88px;
   }
   .tcl-order-showcase .tds-btn-group {
     flex-direction: column;
@@ -1718,27 +1952,35 @@ input[type="range"].tcl-range {
   }
   .tcl-lead-drawer {
     padding: 20px 16px;
-    margin-top: 32px;
+    margin-top: 28px;
   }
   .tcl-lead-grid {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 12px;
   }
   .tcl-input-group input,
   .tcl-input-group select {
-    font-size: 1rem; /* Prevents iOS Safari auto-zoom on focus */
+    font-size: 1rem;
     height: 44px;
   }
   .tds-footer-links {
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
   }
-  .toast-banner {
-    left: 16px;
-    right: 16px;
-    bottom: 16px;
-    text-align: center;
-    padding: 12px 16px;
-    font-size: 0.85rem;
+  .tcl-floating-dock {
+    width: calc(100% - 24px);
+    bottom: 12px;
+    padding: 8px 10px 8px 16px;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .tcl-dock-info {
+    font-size: 0.75rem;
+    gap: 6px;
+  }
+  .tcl-dock-btn {
+    padding: 0 14px;
+    height: 34px;
+    font-size: 0.76rem;
   }
 }
